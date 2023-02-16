@@ -14,7 +14,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "run-server": "php -S localhost:8000 -t public",
+        "server": "php -S localhost:8000 -t public",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
