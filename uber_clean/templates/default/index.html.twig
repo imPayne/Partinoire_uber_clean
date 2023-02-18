@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% extends 'base.html.twig' %}
+{% block title %} Prenez quelqu'un pour faire votre ménage{% endblock %}
 
 {% block body %}
 <style>
@@ -8,7 +8,11 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<section>
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+
+    <section>
     <div class="flex justify-center items-center">
         <div class="grid grid-cols-1 gap-0 md:grid-cols-3">
             <div class="w-80 h-48 m-10">
@@ -16,11 +20,11 @@
                 <h1 class="font-bold text-xl p-2" >Pas le temps de faire le ménage chez vous ?</h1>
             </div>
             <div class="w-80 h-48 m-10">
-                <img class="rounded-md" src="./{{ asset('images/notimetoclean.jpeg') }}">
+                <img class="rounded-md" src="./{{ asset('images/travaux-du-ménage-ennuyeux.jpg') }}">
                 <h1 class="font-bold text-xl p-2" >Vous préférez profité de votre famille que de faire les tâches ménagères ?</h1>
             </div>
             <div class="w-80 h-48 m-10">
-                <img class="rounded-md" src="./{{ asset('images/notimetoclean.jpeg') }}">
+                <img class="rounded-md" src="./{{ asset('images/flemme_de_faire_le_menage.jpg') }}">
                 <h1 class="font-bold text-xl p-2" >Vous avez la flemme de faire le ménage ?</h1>
             </div>
         </div>
