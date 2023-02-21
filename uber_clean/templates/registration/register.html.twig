@@ -21,15 +21,20 @@
                     {{ form_row(registrationForm.email, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}}) }}
                 </div>
                 <div class="my-6 px-4" >
-                    {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
-                }) }}</div>
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}, label: "Mot de Passe"}
+                ) }}</div>
                 <div class="my-6 px-4" >
-                    {{ form_row(registrationForm.agreeTerms,
+                    {{ form_row(registrationForm.agreeTerms, {
+                        'label': 'termes et conditions',
+                        'attr': {
+                            'class': 'form-checkbox h-4 w-4 text-green-500 align-middle',
+                        },
+                        'label_attr': {
+                            'class': 'align-middle px-2',
+                        },
+                    }) }}</div>
 
-                    ) }}</div>
-
-                <button type="submit" class="font-semibold p-2 bg-blue-500 rounded-md">Register</button>
+                <button type="submit" class="ml-12 font-semibold p-2 bg-blue-500 rounded-md">S'inscrire</button>
             {{ form_end(registrationForm) }}
         </div>
     </div>
