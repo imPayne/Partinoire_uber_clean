@@ -41,6 +41,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // set first_name and last_name properties
+            $user->setFirstName($form->get('first_name')->getData());
+            $user->setLastName($form->get('last_name')->getData());
+
             $entityManager->persist($user);
             $entityManager->flush();
 

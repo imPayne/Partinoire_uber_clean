@@ -13,7 +13,7 @@ class Participant
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'participant')]
+    #[ORM\ManyToOne(inversedBy: 'Participant')]
     private ?Housework $housework = null;
 
     #[ORM\ManyToOne]

@@ -23,12 +23,12 @@ class Housework
     #[ORM\JoinColumn(nullable: false)]
     private ?Customer $customer = null;
 
-    #[ORM\OneToMany(mappedBy: 'housework', targetEntity: participant::class)]
-    private Collection $participant;
+    #[ORM\OneToMany(mappedBy: 'housework', targetEntity: Participant::class)]
+    private Collection $Participant;
 
     public function __construct()
     {
-        $this->participant = new ArrayCollection();
+        $this->Participant = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,29 +61,29 @@ class Housework
     }
 
     /**
-     * @return Collection<int, participant>
+     * @return Collection<int, Participant>
      */
     public function getParticipant(): Collection
     {
-        return $this->participant;
+        return $this->Participant;
     }
 
-    public function addParticipant(participant $participant): self
+    public function addParticipant(Participant $Participant): self
     {
-        if (!$this->participant->contains($participant)) {
-            $this->participant->add($participant);
-            $participant->setHousework($this);
+        if (!$this->Participant->contains($Participant)) {
+            $this->Participant->add($Participant);
+            $Participant->setHousework($this);
         }
 
         return $this;
     }
 
-    public function removeParticipant(participant $participant): self
+    public function removeParticipant(Participant $Participant): self
     {
-        if ($this->participant->removeElement($participant)) {
+        if ($this->Participant->removeElement($Participant)) {
             // set the owning side to null (unless already changed)
-            if ($participant->getHousework() === $this) {
-                $participant->setHousework(null);
+            if ($Participant->getHousework() === $this) {
+                $Participant->setHousework(null);
             }
         }
 
