@@ -3,44 +3,23 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
-
     {% block navbar %}
         {{ include('_navbar.html.twig') }}
     {% endblock navbar %}
+    <div class="flex justify-center items-center">
+        <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
+            <h1 class="text-2xl font-bold mb-4">S'inscrire</h1>
 
+            {{ form_start(registrationForm, {'attr': {'class': 'w-full max-w-md'}}) }}
+            {{ form_row(registrationForm.first_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}}) }}
+            {{ form_row(registrationForm.last_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}}) }}
+            {{ form_row(registrationForm.email, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}}) }}
+            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}, 'label': 'Password'}) }}
+            {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'mb-4'}}) }}
 
-    <div class="mt-20 flex items-center justify-center">
-        <div class="p-6 w-96 flex flex-col items-center justify-center bg-gray-100 rounded-lg">
-            <h1 class="font-semibold">Register</h1>
-
-            {{ form_start(registrationForm) }}
-                <div class="my-6 px-4">
-                    {{ form_row(registrationForm.first_name, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}}) }}
-                </div>
-                <div class="my-6 px-4">
-                    {{ form_row(registrationForm.last_name, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}}) }}
-                </div>
-                <div class="my-6 px-4">
-                    {{ form_row(registrationForm.email, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}}) }}
-                </div>
-                <div class="my-6 px-4" >
-                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'focus:border-red-500 focus:ring focus:ring-red-500 focus:ring-opacity-100 rounded-md shadow-sm'}, 'label_attr': {'class': 'block font-medium text-gray-700 my-class'}, label: "Mot de Passe"}
-                ) }}</div>
-                <div class="my-6 px-4" >
-                    {{ form_row(registrationForm.agreeTerms, {
-                        'label': 'termes et conditions',
-                        'attr': {
-                            'class': 'form-checkbox h-4 w-4 text-green-500 align-middle',
-                        },
-                        'label_attr': {
-                            'class': 'align-middle px-2',
-                        },
-                    }) }}</div>
-
-                <button type="submit" class="ml-12 font-semibold p-2 bg-blue-500 rounded-md">S'inscrire</button>
+            <div class="flex items-center justify-center flex-col">
+                <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo">S'inscrire</button>
+            </div>
             {{ form_end(registrationForm) }}
         </div>
     </div>

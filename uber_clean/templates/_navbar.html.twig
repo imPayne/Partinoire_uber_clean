@@ -8,9 +8,17 @@
                 <li class="text-lg font-bold mr-4">
                     <a href="/contact">Contact</a>
                 </li>
-                <li class="text-lg font-bold mr-4">
-                    <a href="/register">S'inscrire</a>
-                </li>
+                {% if app.user %}
+                    <li class="text-lg font-bold mr-4">
+                        <a href="/logout">Logout</a>
+                    </li>
+                    <li class="text-lg font-bold mr-4">
+                        <a href="{{ path('app_profile', {'id': app.user.id}) }}">Profile</a>
+                    </li>
+                {% else %}
+                    <li class="text-lg font-bold mr-4"><a href="{{  path('app_login') }}">Connection</a></li>
+                    <li class="text-lg font-bold mr-4"><a href="{{  path('app_register') }}">S'inscrire</a></li>
+                {% endif %}
             </ul>
         </div>
     </section>
