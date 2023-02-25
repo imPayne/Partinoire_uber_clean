@@ -10,10 +10,10 @@
                 </li>
                 {% if app.user %}
                     <li class="text-lg font-bold mr-4">
-                        <a href="/logout">Logout</a>
+                        <a href="/logout">Déconnexion</a>
                     </li>
                     <li class="text-lg font-bold mr-4">
-                        <a href="{{ path('app_profile', {'id': app.user.id}) }}">Profile</a>
+                        <a href="{{ path('app_profile', {'id': app.user.id}) }}">{{ app.user.firstName|capitalize }}</a>
                     </li>
                 {% else %}
                     <li class="text-lg font-bold mr-4"><a href="{{  path('app_login') }}">Connection</a></li>

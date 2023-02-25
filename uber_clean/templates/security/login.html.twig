@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+<div class="flex justify-center items-center">
+    <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous êtes connectés en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="text-2xl font-bold mb-4">Connectez-vous</h1>
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_email }}" name="_username" id="inputEmail" class="mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue" autocomplete="username" required autofocus>
+            <label for="inputPassword">Mot de Passe</label>
+            <input type="password" name="_password" id="inputPassword" class="mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <div class="flex items-center justify-center flex-col">
+                <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo">Se Connecter</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

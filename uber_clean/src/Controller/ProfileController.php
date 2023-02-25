@@ -2,21 +2,24 @@
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
+use App\Entity\User;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class ProfileController extends AbstractController
 {
     #[Route('/profile', name: 'app_profile')]
-    public function profile(UserRepository $userRepository, UserInterface $user): Response
+    public function index(): Response
     {
-        $currentUser = $userRepository->findOneBy(['email' => $user->getUserIdentifier()]);
+        $user = $this->getUser();
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
         return $this->render('profile/index.html.twig', [
             'controller_name' => 'ProfileController',
-            'current_user' => $currentUser,
+            'user' => $user,
         ]);
     }
 }
