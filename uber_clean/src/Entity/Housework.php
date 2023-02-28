@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: HouseworkRepository::class)]
+#[ORM\Table(name: "housework")]
 class Housework
 {
     #[ORM\Id]
@@ -25,6 +26,9 @@ class Housework
 
     #[ORM\OneToMany(mappedBy: 'housework', targetEntity: Participant::class)]
     private Collection $Participant;
+
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
 
     public function __construct()
     {
@@ -86,6 +90,18 @@ class Housework
                 $Participant->setHousework(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

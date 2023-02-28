@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HouseworkController!{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+    <div class="flex justify-center items-center">
+        <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
+            <h2 class="text-xl font-bold mb-4">Profile de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+            <form method="post" action="{{ path('app_housework') }}">
+                <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo" type="submit">Créer votre Ménage Party</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
