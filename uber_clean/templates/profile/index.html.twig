@@ -9,8 +9,9 @@
 
 <div class="flex justify-center items-center">
     <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
-        <h2 class="text-xl font-bold mb-4">Profile de {{ user.firstName }} {{ user.lastName|capitalize }}</h2>
-
+        <img class="rounded-md mb-6 h-full w-full object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
+        <h2 class="text-xl font-bold mb-4">Profile de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+        <p class="text-lg mb-4">{{ app.user.userIdentifier }}</p>
     </div>
 </div>
 {% endblock %}
