@@ -38,7 +38,7 @@ class HouseworkController extends AbstractController
                 $newHousework->setDateStart($dateObject); // passe l'objet DateTime à setDateStart()
                 $customer->addHousework($newHousework);
                 $session->getFlashBag()->add('success', 'Votre Ménage Party à bien été créer');
-                $entityManager->persist($customer);
+                //$entityManager->persist($customer);
                 $entityManager->persist($newHousework);
                 $entityManager->flush();
             }
