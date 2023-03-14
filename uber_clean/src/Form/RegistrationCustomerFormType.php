@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Customer;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -12,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegistrationFormType extends AbstractType
+class RegistrationCustomerFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -20,7 +21,11 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
+            ->add('adresse', TextType::class, ['required' => false])
+            ->add('region', TextType::class, ['required' => false])
+            ->add('code_postal', TextType::class, ['required' => false])
             ->add('image', FileType::class, [
+                'data_class' => null,
                 'attr' => ['accept' => 'image/*']
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -39,14 +44,13 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Customer::class,
         ]);
     }
 }

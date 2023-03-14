@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CleanerRepository::class)]
 class Cleaner extends User
 {
-    #[ORM\ManyToMany(targetEntity: Service::class, mappedBy: 'cleaner')]
+    #[ORM\ManyToMany(targetEntity: Service::class, mappedBy: 'cleaners')]
     private Collection $services;
 
     public function __construct()

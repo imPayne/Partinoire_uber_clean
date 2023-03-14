@@ -21,12 +21,12 @@ class Service
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $icon = null;
 
-    #[ORM\ManyToMany(targetEntity: cleaner::class, inversedBy: 'services')]
-    private Collection $cleaner;
+    #[ORM\ManyToMany(targetEntity: Cleaner::class, inversedBy: 'services')]
+    private Collection $cleaners;
 
     public function __construct()
     {
-        $this->cleaner = new ArrayCollection();
+        $this->cleaners = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,15 +61,15 @@ class Service
     /**
      * @return Collection<int, cleaner>
      */
-    public function getCleaner(): Collection
+    public function getCleaners(): Collection
     {
-        return $this->cleaner;
+        return $this->cleaners;
     }
 
-    public function addCleaner(cleaner $cleaner): self
+    public function addCleaners(Cleaner $cleaner): self
     {
-        if (!$this->cleaner->contains($cleaner)) {
-            $this->cleaner->add($cleaner);
+        if (!$this->cleaners->contains($cleaner)) {
+            $this->cleaners->add($cleaner);
         }
 
         return $this;
@@ -77,7 +77,7 @@ class Service
 
     public function removeCleaner(cleaner $cleaner): self
     {
-        $this->cleaner->removeElement($cleaner);
+        $this->cleaners->removeElement($cleaner);
 
         return $this;
     }

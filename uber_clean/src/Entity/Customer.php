@@ -16,6 +16,12 @@ class Customer extends User
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Housework::class, orphanRemoval: true)]
     private Collection $houseworks;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $codePostal = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $region = null;
+
     public function __construct()
     {
         $this->houseworks = new ArrayCollection();
@@ -59,6 +65,30 @@ class Customer extends User
                 $housework->setCustomer(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->codePostal;
+    }
+
+    public function setCodePostal(?string $codePostal): self
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?string $region): self
+    {
+        $this->region = $region;
 
         return $this;
     }

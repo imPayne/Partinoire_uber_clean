@@ -28,7 +28,9 @@ class HouseworkController extends AbstractController
         $this->addFlash('debug', 'La méthode index() du HouseworkController est appelée.');
 
         $user = $this->getUser();
-
+        if (!$user) {
+            return ($this->redirectToRoute('home'));
+        }
         if ($request->isMethod('POST') && $user) {
             $customer = $customerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
             if ($customer) {

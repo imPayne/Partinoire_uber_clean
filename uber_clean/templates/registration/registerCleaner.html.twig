@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription en tant que Néttoyeur{% endblock %}
 
 {% block body %}
 
@@ -8,11 +8,12 @@
         {{ include('_navbar.html.twig') }}
     {% endblock navbar %}
 
-<div class="flex justify-center items-center">
-    <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
-        <h1 class="text-2xl font-bold mb-4">Inscription</h1>
+    <div class="flex justify-center items-center">
+        <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
+            <h1 class="text-2xl font-bold mb-4">Inscription de compte</h1>
+            <h2 class="text-xl mb-4">Proposer ses services de nettoyage</h2>
 
-        {{ form_start(registrationForm, {'attr': {'class': 'w-full max-w-md'}}) }}
+            {{ form_start(registrationForm, {'attr': {'class': 'w-full max-w-md'}}) }}
             {{ form_row(registrationForm.first_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}, 'label': 'Prénom'}) }}
             {{ form_row(registrationForm.last_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}, 'label': 'Nom'}) }}
             {{ form_row(registrationForm.email, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none focus:shadow-outline-blue'}}) }}
@@ -21,10 +22,10 @@
             {{ form_widget(registrationForm.image, {'attr': {'class': 'border rounded py-2 px-3 w-full mb-4'}}) }}
             {{ form_errors(registrationForm.image) }}
 
-        <div class="flex items-center justify-center flex-col">
-            <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo">S'inscrire</button>
+            <div class="flex items-center justify-center flex-col">
+                <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo">S'inscrire</button>
+            </div>
+            {{ form_end(registrationForm) }}
         </div>
-        {{ form_end(registrationForm) }}
     </div>
-</div>
 {% endblock %}
