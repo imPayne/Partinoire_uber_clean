@@ -31,15 +31,17 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_CUSTOMER']);
         $password = $this->hasher->hashPassword($user, '123456');
         $user->setPassword($password);
-
+        $manager->persist($user);
 
         $user2 = new Cleaner();
+        $user2->setRoles(['ROLE_CLEANER']);
         $user2->setFirstName('léo');
         $user2->setEmail('leo@gmail.com');
         $user2->setLastName('mcn');
         $password2 = $this->hasher->hashPassword($user2, '123456');
         $user2->setPassword($password2);
-        $manager->persist($user);
+        $manager->persist($user2);
+
         $manager->flush();
     }
 }

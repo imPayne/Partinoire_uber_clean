@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+
+    {% if services %}
+        <div class="mt-10 p-10 grid grid-cols-3 gap-4">
+            {% for service in services %}
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img class="w-full h-48 object-cover" src="{{ asset('images/' ~ service.icon) }}" alt="{{ service.name }}">
+                    <div class="p-4">
+                        {% if service.name == "Empty" %}
+                            <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo">Créer un Service</a>
+                        {% else %}
+                            <h3 class="text-lg font-semibold text-gray-900">{{ service.name }}</h3>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+
+{% endblock %}
+
