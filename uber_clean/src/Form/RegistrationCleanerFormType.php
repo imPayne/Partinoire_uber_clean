@@ -24,7 +24,6 @@ class RegistrationCleanerFormType extends AbstractType
                 'data_class' => null,
                 'attr' => ['accept' => 'image/*']
             ])
-            ->add('services')
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
