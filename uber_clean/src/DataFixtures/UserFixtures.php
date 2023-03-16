@@ -39,6 +39,7 @@ class UserFixtures extends Fixture
         $user2->setFirstName('Cleaner');
         $user2->setEmail('cleaner@gmail.com');
         $user2->setLastName('Néttoyeur');
+        $user2->setNote(4.9);
         $password2 = $this->hasher->hashPassword($user2, 'cleaner');
         $user2->setPassword($password2);
         $manager->persist($user2);

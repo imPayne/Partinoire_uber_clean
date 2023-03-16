@@ -20,9 +20,6 @@
 
                         <div id="dropdown" class="z-10 hidden bg-white rounded-lg w-auto">
                             <ul class="rounded-md border-gray-100 border-2 px-4 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
-                                <li class="text-center text-md font-medium text-red-400 hover:text-red-800">
-                                    <a href="/logout">Déconnexion</a>
-                                </li>
                                 <li class="text-center text-md font-medium hover:text-blue-600">
                                     <a href="{{ path('app_profile', {'id': app.user.id}) }}">Mon Profil</a>
                                 </li>
@@ -36,6 +33,9 @@
                                         </li>
                                     {% endif %}
                                 {% endfor %}
+                                <li class="text-center text-md font-medium text-red-400 hover:text-red-800">
+                                    <a href="/logout">Déconnexion</a>
+                                </li>
                             </ul>
                         </div>
 
