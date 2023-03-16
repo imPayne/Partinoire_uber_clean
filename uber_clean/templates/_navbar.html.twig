@@ -26,14 +26,16 @@
                                 <li class="text-center text-md font-medium hover:text-blue-600">
                                     <a href="{{ path('app_profile', {'id': app.user.id}) }}">Mon Profil</a>
                                 </li>
-                                {% if "ROLE_CUSTOMER" in app.user.roles %}
-                                    <li class="text-center text-md font-medium hover:text-blue-600">
-                                        <a href="{{ path('app_show_houseworks', {'id': app.user.id}) }}">Mes MParty</a>
-                                    </li>
-                                    <li class="text-center text-md font-medium hover:text-blue-600">
-                                        <a href="{{ path('app_housework', {'id': app.user.id}) }}">Nouvelle MParty</a>
-                                    </li>
-                                {% endif %}
+                                {% for role in app.user.roles %}
+                                    {% if "ROLE_CUSTOMER" in role %}
+                                        <li class="text-center text-md font-medium hover:text-blue-600">
+                                            <a href="{{ path('app_show_houseworks', {'id': app.user.id}) }}">Mes MParty</a>
+                                        </li>
+                                        <li class="text-center text-md font-medium hover:text-blue-600">
+                                            <a href="{{ path('app_housework', {'id': app.user.id}) }}">Nouvelle MParty</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
 

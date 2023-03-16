@@ -22,25 +22,28 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new Customer();
-        $user->setFirstName('hugo');
-        $user->setEmail("hmonchab@gmail.com");
-        $user->setAdresse("2 rue du petit marteau");
+        $user->setFirstName('admin');
+        $user->setEmail("admin@gmail.com");
+        $user->setAdresse("2 rue de l'admin");
         $user->setCodePostal("35000");
         $user->setRegion("Bretagne");
-        $user->setLastName("mcn");
-        $user->setRoles(['ROLE_CUSTOMER']);
-        $password = $this->hasher->hashPassword($user, '123456');
+        $user->setLastName("Administrator");
+        $user->setRoles(['ROLE_CUSTOMER, ROLE_ADMIN']);
+        $user->setImage("L-immortale-64126846087bb.png");
+        $password = $this->hasher->hashPassword($user, 'admin');
         $user->setPassword($password);
         $manager->persist($user);
 
         $user2 = new Cleaner();
         $user2->setRoles(['ROLE_CLEANER']);
-        $user2->setFirstName('léo');
-        $user2->setEmail('leo@gmail.com');
-        $user2->setLastName('mcn');
-        $password2 = $this->hasher->hashPassword($user2, '123456');
+        $user2->setFirstName('Cleaner');
+        $user2->setEmail('cleaner@gmail.com');
+        $user2->setLastName('Néttoyeur');
+        $password2 = $this->hasher->hashPassword($user2, 'cleaner');
         $user2->setPassword($password2);
         $manager->persist($user2);
+
+
 
         $manager->flush();
     }

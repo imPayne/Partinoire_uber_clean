@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+
+    <div class="flex justify-center items-center">
+        <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
+            <h1 class="text-2xl font-bold mb-4">Création de Service</h1>
+
+            {{ form_start(form, {'attr': {'class': 'w-full max-w-md'}}) }}
+            {{ form_row(form.name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Nom du Service'}) }}
+            {{ form_label(form.icon, 'Importer une image', {'label_attr': {'class': 'block text-gray-700 mb-2'}}) }}
+            {{ form_widget(form.icon, {'attr': {'class': 'border rounded py-2 px-3 w-full mb-4'}}) }}
+            {{ form_errors(form.icon) }}
+
+            <div class="flex items-center justify-center flex-col">
+                <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">Valider</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
+
