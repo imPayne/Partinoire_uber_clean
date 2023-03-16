@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Ménages Party{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+    <div class="mt-10 p-6 grid grid-cols-2 gap-4">
+            {% if app.user.houseworks %}
+                {% for housework in app.user.houseworks %}
+                    <div class="flex flex-col p-4 m-4 h-96 w-96 items-center justify-center bg-gray-100 rounded-md">
+                        {% if housework.listImage is defined %}
+                            <img class="rounded-md mb-6 h-full w-full object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                        {% endif %}
+                        <h1 class="text-xl font-bold mb-4">{{ housework.title }}</h1>
+                        <p class="text-lg mb-4">{{ housework.description }}</p>
+                        <p class="text-lg mb-4">
+                            <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
+                                {{ housework.dateStart|date('l jS \o\f F  \a\t g:i a') }}
+                            </time>
+                        </p>
+
+                    </div>
+                {% endfor %}
+            {% endif %}
+    </div>
+
+
+
+{% endblock %}

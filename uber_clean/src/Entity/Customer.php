@@ -53,7 +53,6 @@ class Customer extends User
             $this->houseworks->add($housework);
             $housework->setCustomer($this);
         }
-
         return $this;
     }
 

@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Entity\Housework;
+use App\Form\MenagePartyFormType;
 use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
+use App\Service\FileUploader;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
@@ -23,32 +25,54 @@ class HouseworkController extends AbstractController
      * @throws ORMException
      */
     #[Route('/housework', name: 'app_housework')]
-    public function index(SessionInterface $session, Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager): Response
+    public function index(FileUploader $fileUploader, SessionInterface $session, Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager): Response
     {
-        $this->addFlash('debug', 'La méthode index() du HouseworkController est appelée.');
-
         $user = $this->getUser();
         if (!$user) {
-            return ($this->redirectToRoute('home'));
+            return ($this->redirectToRoute('app_login'));
         }
-        if ($request->isMethod('POST') && $user) {
+        $newHousework = new Housework();
+
+        $form = $this->createForm(MenagePartyFormType::class, $newHousework);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $customer = $customerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
             if ($customer) {
-                $newHousework = new Housework();
-                $currentDate = date('Y-m-d H:i:s'); // récupère la date et l'heure actuelles
-                $dateObject = DateTime::createFromFormat('Y-m-d H:i:s', $currentDate); // convertit en objet DateTime
-                $newHousework->setDateStart($dateObject); // passe l'objet DateTime à setDateStart()
+                $newHousework->setDateStart($form->get('dateStart')->getData()); // passe l'objet DateTime à setDateStart()
+                $newHousework->setDescription($form->get('description')->getData());
+                $newHousework->setTitle($form->get('title')->getData());
+                $image = $form->get('listImage')->getData();
+                $fileName = $fileUploader->upload($image);
+                $newHousework->setListImage($fileName);
                 $customer->addHousework($newHousework);
-                $session->getFlashBag()->add('success', 'Votre Ménage Party à bien été créer');
-                //$entityManager->persist($customer);
+
+                $entityManager->persist($customer);
+
                 $entityManager->persist($newHousework);
                 $entityManager->flush();
+
+                return $this->redirectToRoute("app_profile");
             }
         }
 
-
         return $this->render('housework/index.html.twig', [
             'controller_name' => 'HouseworkController',
+            'form' => $form->createView(),
+        ]);
+    }
+    #[Route('/my_houseworks', name: 'app_show_houseworks')]
+    public function myHouseworks(Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager, HouseworkRepository $houseworkRepository): Response
+    {
+        $user = $this->getUser();
+        if (!$user) {
+            return ($this->redirectToRoute('app_login'));
+        }
+        $customer = $customerRepository->findOneBy(['email' => $this->getUser()]);
+
+        return $this->render('housework/myHouseworks.html.twig', [
+            'controller_name' => 'HouseworkController',
+            'customer' => $customer,
         ]);
     }
 }

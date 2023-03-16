@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ app.user.firstName }} {{ app.user.lastName|capitalize }}{% endblock %}
+{% block title %}Uber Clean{% endblock %}
 
 {% block body %}
     {% block navbar %}
@@ -24,12 +24,12 @@
             {% else %}
                 <p class="text-lg mb-2">Services: {{ userType.services }}</p>
             {% endif %}
-            <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profile</a>
+            <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profile</a>
         </div>
         <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-100 rounded-lg">
             {# ajouter la liste des Match party du user connecté #}
             <img class="rounded-md mb-6 h-full w-auto object-cover" src="{{ asset('images/empty.jpg') }}" alt="empty-service-image">
-            <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-indigo" href="/housework">Créer votre Ménage Party</a>
+            <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="/housework">Créer votre Ménage Party</a>
         </div>
     </div>
     {% if 'ROLE_CUSTOMER' in app.user.roles %}

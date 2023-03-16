@@ -30,6 +30,12 @@ class Housework
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $list_image = null;
+
     public function __construct()
     {
         $this->Participant = new ArrayCollection();
@@ -105,4 +111,29 @@ class Housework
 
         return $this;
     }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getListImage(): ?string
+    {
+        return $this->list_image;
+    }
+
+    public function setListImage(?string $list_image): self
+    {
+        $this->list_image = $list_image;
+
+        return $this;
+    }
+
 }
