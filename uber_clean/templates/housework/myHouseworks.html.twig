@@ -15,12 +15,15 @@
                             <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                         {% endif %}
                         <h1 class="text-xl font-bold mb-4">{{ housework.title }}</h1>
-                        <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
+                        <p class="text-lg mb-4 px-2">Description: {{ housework.description }}</p>
                         <p class="text-lg mb-4">
                             <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
                                 {{ housework.dateStart|date('l jS F g:i') }}
                             </time>
                         </p>
+                        <p class="text-lg mb-4">Adresse: {{ app.user.adresse }}</p>
+                        <p class="text-lg mb-4">Code Postal: {{ app.user.codePostal }}</p>
+                        <p class="text-lg mb-4">Région: {{ app.user.region }}</p>
                     </div>
                 {% endfor %}
             {% else %}
