@@ -8,7 +8,6 @@ use App\Form\MenagePartyFormType;
 use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
 use App\Service\FileUploader;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
@@ -62,7 +61,7 @@ class HouseworkController extends AbstractController
         ]);
     }
     #[Route('/my_houseworks', name: 'app_show_houseworks')]
-    public function myHouseworks(Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager, HouseworkRepository $houseworkRepository): Response
+    public function myHouseworks(CustomerRepository $customerRepository): Response
     {
         $user = $this->getUser();
         if (!$user) {
