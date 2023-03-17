@@ -23,7 +23,8 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress",
+        "push": "git add . && git commit -m $1 && git push"
     },
     "dependencies": {
         "flowbite": "^1.6.4"
