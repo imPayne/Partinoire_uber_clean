@@ -1,16 +1,17 @@
 {% block footer %}
 
-    <footer class="h-56 w-full flex flex-col justify-center bg-gray-100">
-        <div class="h-auto w-auto ml-16 mt-6">
-            <h1 class="text-2xl font-bold mr-6">Uber Clean</h1>
+    <footer class="h-auto w-full flex flex-col justify-center bg-gray-50">
+        <div class="h-auto w-auto ml-16 mt-2">
             <a href="/">
-                <img class="ml-6 h-20 p-4" src="{{ asset('images/logo_uber_clean.png')}}" alt="logo">
+                <img class="ml-10 mt-10 h-36 p-4 pt-10" src="{{ asset('images/logo_uber_clean.png')}}" alt="logo">
             </a>
         </div>
         <div class="flex flex-col items-center">
-
-            <ul class="w-262 h-50 flex items-center">
-                <li class="text-lg font-bold mr-6">
+            <ul class="w-262 h-auto flex flex-col items-center">
+                <li class="text-lg font-bold mb-10">
+                    <h1 class="text-4xl font-bold mr-6">Uber Clean</h1>
+                </li>
+                <li class="text-lg font-bold">
                     <a href="{{ path('contact') }}">Contactez-nous</a>
                 </li>
             </ul>
