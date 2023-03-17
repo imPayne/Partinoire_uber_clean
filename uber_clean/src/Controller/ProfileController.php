@@ -111,6 +111,5 @@ class ProfileController extends AbstractController
             'registrationForm' => $form->createView(),
             'isCleaner' => $user instanceof Cleaner,
         ]);
-
     }
 }

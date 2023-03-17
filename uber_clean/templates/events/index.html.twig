@@ -15,9 +15,13 @@
                     <img class="w-full h-48 object-cover" src="{{ asset('images/' ~ service.icon) }}" alt="{{ service.name }}">
                     <div class="p-4">
                         {% if service.name == "Empty" %}
-                            <a href="{{ path('app_create_event') }}" class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">Créer un Service</a>
-                        {% else %}
-                            <h3 class="text-lg font-semibold text-gray-900">{{ service.name }}</h3>
+                            {% for role in app.user.roles %}
+                                {% if "ROLE_ADMIN" in role %}
+                                    <a href="{{ path('app_create_event') }}" class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">Créer un Service</a>
+                                {% endif %}
+                            {% else %}
+                                <h3 class="text-lg font-semibold text-gray-900">{{ service.name }}</h3>
+                            {% endfor %}
                         {% endif %}
                     </div>
                 </div>

@@ -28,7 +28,6 @@ class EventsController extends AbstractController
     }
 
     #[Route('/create_event', name: 'app_create_event')]
-    #[IsGranted('ROLE_ADMIN')]
     public function createEvent(EntityManagerInterface $entityManager, Request $request, ServiceRepository $serviceRepository, FileUploader $fileUploader): Response
     {
         $user = $this->getUser();
