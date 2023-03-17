@@ -9,18 +9,18 @@
     {% endblock navbar %}
 
     <section class="mb-28">
-        <div class="flex justify-center items-center">
+        <div class="mt-16 flex justify-center items-center">
             <div class="grid grid-cols-3 gap-0 md:grid-cols-3">
-                <div class="w-80 h-48 m-10">
-                    <img class="rounded-md" src="./{{ asset('images/notimetoclean.jpeg') }}">
+                <div class="w-96 h-64 m-10">
+                    <img src="./{{ asset('images/notimetoclean.jpeg') }}">
                     <h1 class="font-bold text-xl p-2" >Pas le temps de faire le ménage chez vous ?</h1>
                 </div>
-                <div class="w-80 h-48 m-10">
-                    <img class="rounded-md" src="./{{ asset('images/travaux-du-ménage-ennuyeux.jpg') }}">
+                <div class="w-96 h-64 m-10">
+                    <img src="./{{ asset('images/travaux-du-ménage-ennuyeux.jpg') }}">
                     <h1 class="font-bold text-xl p-2" >Vous préférez profité de votre famille que de faire les tâches ménagères ?</h1>
                 </div>
-                <div class="w-80 h-48 m-10">
-                    <img class="rounded-md" src="./{{ asset('images/flemme_de_faire_le_menage.jpg') }}">
+                <div class="w-96 h-64 m-10">
+                    <img src="./{{ asset('images/flemme_de_faire_le_menage.jpg') }}">
                     <h1 class="font-bold text-xl p-2" >Vous avez la flemme de faire le ménage ?</h1>
                 </div>
             </div>
@@ -30,7 +30,7 @@
     <section class="my-20">
         <div class="flex flex-col items-center">
             <h1 class="mt-10 text-left font-bold text-xl p-2">Commencez par créer votre Ménage Party!</h1>
-            <p class="my-2 text-left text-lg mb-4 px-2">Pour <a class="underline text-blue-600" href="{{ path('app_housework', {'id': app.user.id}) }}">créer votre ménage party</a> vous avez juste à renseigner un titre une description et plus qu'à ajouter la date et l'heure. <br>Plus besoin de vous préocuppez du ménage ou encore de la vaisselle en rentrant du travail!</p>
+            <p class="my-2 text-left text-lg mb-4 px-2">Pour <a class="underline text-blue-600" href="{{ path('app_housework') }}">créer votre ménage party</a> vous avez juste à renseigner un titre une description et plus qu'à ajouter la date et l'heure. <br>Plus besoin de vous préocuppez du ménage ou encore de la vaisselle en rentrant du travail!</p>
         </div>
     </section>
 
