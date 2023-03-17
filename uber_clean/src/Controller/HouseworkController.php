@@ -61,7 +61,7 @@ class HouseworkController extends AbstractController
         ]);
     }
     #[Route('/my_houseworks', name: 'app_show_houseworks')]
-    public function myHouseworks(Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager, HouseworkRepository $houseworkRepository): Response
+    public function myHouseworks(CustomerRepository $customerRepository): Response
     {
         $user = $this->getUser();
         if (!$user) {

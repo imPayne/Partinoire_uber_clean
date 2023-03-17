@@ -10,19 +10,21 @@
 
         <div class="flex items-center justify-center">
             <div class="mt-10 p-6 grid grid-cols-4">
-                {% for menageParty in menagePartys %}
-                    <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center bg-gray-100 rounded-md">
-                        {% if menageParty.listImage is defined %}
-                            <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
-                        {% endif %}
-                        <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
-                        <p class="text-lg mb-4 px-2">Description: {{ housework.description }}</p>
-                        <p class="text-lg mb-4">
-                            <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
-                                {{ housework.dateStart|date('l jS F g:i') }}
-                            </time>
-                        </p>
-                    </div>
+                {% for customer in customers %}
+                    {% for menageParty in customer.houseworks %}
+                        <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center bg-gray-100 rounded-md">
+                            {% if menageParty.listImage is defined %}
+                                <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                            {% endif %}
+                            <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
+                            <p class="text-lg mb-4 px-2">Description: {{ housework.description }}</p>
+                            <p class="text-lg mb-4">
+                                <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
+                                    {{ housework.dateStart|date('l jS F g:i') }}
+                                </time>
+                            </p>
+                        </div>
+                    {% endfor %}
                 {% endfor %}
 
 
