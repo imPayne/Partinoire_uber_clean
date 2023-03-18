@@ -10,7 +10,7 @@
         <div class="mt-10 p-6 grid grid-cols-2">
             {% if app.user.houseworks %}
                 {% for housework in app.user.houseworks %}
-                    <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center $bg-gray-200 rounded-md">
+                    <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center bg-gray-200 rounded-md">
                         {% if housework.listImage is defined %}
                             <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                         {% endif %}
@@ -27,7 +27,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center $bg-gray-200 rounded-md">
+                <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center bg-gray-200 rounded-md">
                     <h1 class="text-xl font-bold mb-4 text-red-400">Vous n'avez pas de Ménage Party en cours.</h1>
                 </div>
             {% endif %}

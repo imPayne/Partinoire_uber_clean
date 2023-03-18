@@ -9,7 +9,7 @@
 
     {% if not isCleaner %}
         <div class="flex flex-col justify-center items-center">
-            <div class="flex flex-col w-auto m-10 p-10 items-center justify-center $bg-gray-200 rounded-lg">
+            <div class="flex flex-col w-auto m-10 p-10 items-center justify-center bg-gray-200 rounded-lg">
                 {% if app.user.image %}
                     <img class="rounded-md mb-6 h-48 w-48 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
                 {% else %}
@@ -37,7 +37,7 @@
 
     {% else %}
         <div class="flex flex-col justify-center items-center">
-            <div class="flex flex-col w-96 m-10 p-10 items-center justify-center $bg-gray-200 rounded-lg">
+            <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-200 rounded-lg">
                 {% if app.user.image %}
                     <img class="rounded-md mb-6 h-48 w-48 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
                 {% else %}

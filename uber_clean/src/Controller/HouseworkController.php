@@ -41,12 +41,11 @@ class HouseworkController extends AbstractController
 
         $services = $serviceRepository->findAll();
         $serviceChoices = [];
-        $i = 0;
         foreach ($services as $service) {
-            $serviceChoices[$i] = $service->getName();
+            $serviceChoices[$service->getName()] = $service->getName();
         }
 
-        $form = $this->createFormBuilder($newHousework)
+        $form = $this->createFormBuilder()
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)
             ->add('dateStart', DateTimeType::class,  [
@@ -62,7 +61,8 @@ class HouseworkController extends AbstractController
                 'mapped' => false,
                 'required' => false,
             ])
-            ->add('mes_services', ChoiceType::class, [
+            ->add('services', ChoiceType::class, [
+                'label' => "Associé(s) un ou plusieurs services",
                 'choices' => $serviceChoices,
                 'multiple' => true,
                 'expanded' => true,
@@ -81,8 +81,7 @@ class HouseworkController extends AbstractController
                 $fileName = $fileUploader->upload($image);
                 $newHousework->setListImage($fileName);
 
-
-                foreach ($form->get('mes_services')->getData() as $serviceChoosen) {
+                foreach ($form->get('services')->getData() as $serviceChoosen) {
                     $newParticipant = new Participant();
                     $selectServiceFromDb = $serviceRepository->findOneBy(['name' => $serviceChoosen]);
                     $newParticipant->setService($selectServiceFromDb);
@@ -101,6 +100,7 @@ class HouseworkController extends AbstractController
         return $this->render('housework/index.html.twig', [
             'controller_name' => 'HouseworkController',
             'form' => $form->createView(),
+            'services' => $serviceChoices
         ]);
     }
     #[Route('/my_houseworks', name: 'app_show_houseworks')]

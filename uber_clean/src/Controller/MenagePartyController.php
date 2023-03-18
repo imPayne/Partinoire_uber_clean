@@ -15,6 +15,8 @@ class MenagePartyController extends AbstractController
     {
         $houseworks = $houseworkRepository->findAll();
 
+
+
         return $this->render('menage_party/index.html.twig', [
             'controller_name' => 'MenagePartyController',
             'houseworks' => $houseworks,

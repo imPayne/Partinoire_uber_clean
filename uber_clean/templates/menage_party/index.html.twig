@@ -11,24 +11,32 @@
             {% if houseworks is not empty %}
                 <div class="mt-10 p-6 grid grid-cols-4">
                     {% for housework in houseworks %}
-                        <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center $bg-gray-200 rounded-md">
-
+                        <div class="flex flex-col p-6 m-4 h-auto w-auto items-center bg-gray-200 rounded-md">
                                 {% if housework.listImage is defined %}
-                                    <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                                    <img class="rounded-md mb-6 h-48 w-auto object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                                 {% endif %}
 
                                 <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
-                                <p class="text-lg mb-4 px-2">Description: {{ housework.description }}</p>
+                                <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
                                 <p class="text-lg mb-4">
                                     <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
                                         {{ housework.dateStart|date('l jS F g:i') }}
                                     </time>
                                 </p>
-                                <p class="text-lg mb-4 px-2">
-                                    {{ housework.customer.firstName }} {{ housework.customer.lastName|capitalize }}
-                                </p>
+
+                            <div class="flex justify-center items-center">
+                                {% for participant in housework.participant %}
+                                    <p class="text-lg mb-4 px-2">
+                                        {{ participant.service.name }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                            <p class="text-lg mb-4 px-2">
+                                {{ housework.customer.firstName }} {{ housework.customer.lastName|capitalize }}
+                            </p>
                         </div>
                     {% endfor %}
+
                 </div>
             {% else %}
                     <div class="p-6 m-4 mt-32 flex h-96 w-full items-center justify-center">

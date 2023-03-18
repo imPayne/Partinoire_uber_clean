@@ -12,10 +12,6 @@ class EventsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
-        $service = new Service();
-        $service->setName("Empty");
-        $service->setIcon("empty.jpg");
-
         $service1 = new Service();
         $service1->setName("Vitres");
         $service1->setIcon("vitres.jpeg");
@@ -36,7 +32,6 @@ class EventsFixtures extends Fixture
         $service5->setName("Pelouse");
         $service5->setIcon("pelouse.jpg");
 
-        $manager->persist($service);
         $manager->persist($service1);
         $manager->persist($service2);
         $manager->persist($service3);
