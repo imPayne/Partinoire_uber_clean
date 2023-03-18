@@ -17,10 +17,10 @@ class Participant
     private ?Housework $housework = null;
 
     #[ORM\ManyToOne]
-    private ?service $service = null;
+    private ?Service $Service = null;
 
     #[ORM\ManyToOne]
-    private ?cleaner $cleaner = null;
+    private ?Cleaner $Cleaner = null;
 
     public function getId(): ?int
     {
@@ -39,14 +39,14 @@ class Participant
         return $this;
     }
 
-    public function getService(): ?service
+    public function getService(): ?Service
     {
-        return $this->service;
+        return $this->Service;
     }
 
-    public function setService(?service $service): self
+    public function setService(?Service $Service): self
     {
-        $this->service = $service;
+        $this->Service = $Service;
 
         return $this;
     }
@@ -56,9 +56,9 @@ class Participant
         return $this->cleaner;
     }
 
-    public function setCleaner(?cleaner $cleaner): self
+    public function setCleaner(?cleaner $Cleaner): self
     {
-        $this->cleaner = $cleaner;
+        $this->cleaner = $Cleaner;
 
         return $this;
     }

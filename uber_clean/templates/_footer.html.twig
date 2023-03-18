@@ -1,5 +1,4 @@
 {% block footer %}
-
     <footer class="h-auto w-full flex flex-col justify-center bg-gray-50">
         <div class="h-auto w-auto ml-16 mt-2">
             <a href="/">
@@ -15,8 +14,7 @@
                     <a href="{{ path('contact') }}">Contactez-nous</a>
                 </li>
             </ul>
-            <p class="mt-4 mb-2 text-lg font-bold">© 2023 Uber Clean</p>
+            <p class="mt-4 mb-2 text-lg font-bold">© {{ "now"|date("Y") }} Uber Clean</p>
         </div>
     </footer>
-
 {% endblock %}
