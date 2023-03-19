@@ -30,7 +30,23 @@
     <section class="my-20">
         <div class="flex flex-col items-center">
             <h1 class="mt-10 text-left font-bold text-xl p-2">Commencez par créer votre Ménage Party!</h1>
-            <p class="my-2 text-left text-lg mb-4 px-2">Pour <a class="underline text-blue-600" href="{{ path('app_housework') }}">créer votre ménage party</a> vous avez juste à renseigner un titre une description et plus qu'à ajouter la date et l'heure. <br>Plus besoin de vous préocuppez du ménage ou encore de la vaisselle en rentrant du travail!</p>
+            <p class="my-2 text-left text-lg mb-4 px-2">Pour
+                {% if app.user %}
+                    {% for role in app.user.roles %}
+                        {% if 'ROLE_CUSTOMER' in role %}
+                            <a class="underline text-blue-600" href="{{ path('app_housework') }}">créer votre ménage party</a>
+                        {% endif %}
+                        {% if 'ROLE_CLEANER' in role %}
+                            <span>créer votre ménage party</span>
+                        {% endif %}
+                    {% endfor %}
+                    vous avez juste à renseigner un titre une description et plus qu'à ajouter la date et l'heure. <br>Plus besoin de vous préocuppez du ménage ou encore de la vaisselle en rentrant du travail!</p>
+                {% endif %}
+
+            <h1 class="mt-44 text-left font-bold text-xl p-2">Vous voulez proposé vos services ? C'est très simple!</h1>
+            <p class="my-2 text-left text-lg mb-4 px-2">Vous avez juste à créer un compte Cleaner et aller dans la rubrique des Ménages Party proposé par les différents utilisateur du site.</p>
+            <img class="mt-10" src="./{{ asset('images/proposez_vos_services.jpg') }}">
+
         </div>
     </section>
 

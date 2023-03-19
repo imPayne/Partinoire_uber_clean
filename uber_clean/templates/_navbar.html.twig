@@ -11,10 +11,10 @@
                 <li class="text-lg font-bold mr-10">
                     <a href="{{ path('app_events') }}">Services</a>
                 </li>
-                {% if app.user %}
+                {% if app.user is defined and app.user is not null %}
                     <li class="mr-6 h-12 w-12 rounded-full overflow-hidden">
                         <button id="dropdownProfileButton" data-dropdown-toggle="dropdown" type="button">
-                            {% if app.user.image %}
+                            {% if app.user.image is not null %}
                                 <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
                             {% else %}
                                 <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">

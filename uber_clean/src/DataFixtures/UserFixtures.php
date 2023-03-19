@@ -28,7 +28,7 @@ class UserFixtures extends Fixture
         $user->setCodePostal("35000");
         $user->setRegion("Bretagne");
         $user->setLastName("Administrator");
-        $user->setRoles(['ROLE_CUSTOMER, ROLE_ADMIN']);
+        $user->setRoles(['ROLE_CUSTOMER']);
         $user->setImage("L-immortale-64126846087bb.png");
         $password = $this->hasher->hashPassword($user, 'admin');
         $user->setPassword($password);
@@ -44,7 +44,6 @@ class UserFixtures extends Fixture
         $password2 = $this->hasher->hashPassword($user2, 'cleaner');
         $user2->setPassword($password2);
         $manager->persist($user2);
-
 
 
         $manager->flush();
