@@ -11,29 +11,52 @@
             {% if houseworks is not empty %}
                 <div class="mt-10 p-6 grid grid-cols-4">
                     {% for housework in houseworks %}
-                        <div class="flex flex-col p-6 m-4 h-auto w-auto items-center bg-gray-200 rounded-md">
+                        <div class="relative flex flex-col p-6 m-4 h-auto w-auto items-center bg-gray-200 rounded-md">
                                 {% if housework.listImage is defined %}
-                                    <img class="rounded-md mb-6 h-48 w-auto object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                                    <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                                 {% endif %}
 
                                 <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
                                 <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
-                                <p class="text-lg mb-4">
+                                <p class="text-lg mb-20">
                                     <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
                                         {{ housework.dateStart|date('l jS F g:i') }}
                                     </time>
                                 </p>
+                            <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
+                                <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
+                                    <p class="h-auto w-auto text-white shadow-outline-indigo rounded-lg m-2 bg-indigo-600 text-lg mb-4 px-2">Services</p>
+                                </button>
 
-                            <div class="flex justify-center items-center">
-                                {% for participant in housework.participant %}
-                                    <p class="text-lg mb-4 px-2">
-                                        {{ participant.service.name }}
-                                    </p>
-                                {% endfor %}
+                                <div id="dropdown{{ housework.id }}" class="hidden bg-white rounded-lg w-auto">
+                                    <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
+                                        {% for participant in housework.participant %}
+                                            <li class="py-2 text-left text-md font-medium hover:text-blue-600">
+                                                <p>
+                                                    {{ participant.service.name }}
+                                                </p>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
-                            <p class="text-lg mb-4 px-2">
-                                {{ housework.customer.firstName }} {{ housework.customer.lastName|capitalize }}
-                            </p>
+                            <div class="absolute right-[5%] bottom-[5%] flex flex-col items-center sm:flex-row">
+                                <p class="text-lg px-2">
+                                    {{ housework.customer.firstName }} {{ housework.customer.lastName|first }}
+                                </p>
+                                <div class="ml-2 h-12 w-12 rounded-full overflow-hidden">
+                                    {% if app.user.image is not null %}
+                                        <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
+                                    {% else %}
+                                        <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ housework.customer.firstName }}">
+                                    {% endif %}
+                                </div>
+
+
+
+                            </div>
+
+
                         </div>
                     {% endfor %}
 
