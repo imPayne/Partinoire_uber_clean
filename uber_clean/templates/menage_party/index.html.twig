@@ -18,7 +18,7 @@
 
                                 <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
                                 <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
-                                <p class="text-lg mb-20">
+                                <p class="text-lg mb-10">
                                     <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
                                         {{ housework.dateStart|date('l jS F g:i') }}
                                     </time>
@@ -30,13 +30,17 @@
 
                                 <div id="dropdown{{ housework.id }}" class="hidden bg-white rounded-lg w-auto">
                                     <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
-                                        {% for participant in housework.participant %}
-                                            <li class="py-2 text-left text-md font-medium hover:text-blue-600">
-                                                <p>
-                                                    {{ participant.service.name }}
-                                                </p>
-                                            </li>
-                                        {% endfor %}
+                                        {% if housework is not null and housework.participant is not null %}
+                                            {% for participant in housework.participant %}
+                                                <li class="py-2 text-left text-md font-medium hover:text-blue-600">
+                                                    <p>
+                                                        {% if participant.service is not null and participant.service.name is not null %}
+                                                            {{ participant.service.name }}
+                                                        {% endif %}
+                                                    </p>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -51,12 +55,8 @@
                                         <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ housework.customer.firstName }}">
                                     {% endif %}
                                 </div>
-
-
-
                             </div>
-
-
+                            <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.id}) }}">Détail</a>
                         </div>
                     {% endfor %}
 

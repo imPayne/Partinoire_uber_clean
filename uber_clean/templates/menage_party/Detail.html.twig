@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}Ménage Party{% endblock %}
+
+    {% block body %}
+        {% block navbar %}
+            {{ include('_navbar.html.twig') }}
+        {% endblock navbar %}
+
+        <div class="flex items-center justify-center">
+            {% if housework is not empty %}
+                <div class="relative flex flex-col p-6 m-4 h-full w-[35rem] items-center bg-gray-200 rounded-md">
+                    {% if housework.listImage is defined %}
+                        <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                    {% endif %}
+
+                    <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
+                    <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
+                    <p class="text-lg mb-6">
+                        <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
+                            {{ housework.dateStart|date('l jS F g:i') }}
+                        </time>
+                    </p>
+                    {% if listParticipantHousework is not empty %}
+                        <p class="mb-20 text-lg px-2">
+                            Un Utilisateur à déjà proposé ses services!
+                        </p>
+                    {% else %}
+                        {{ form_start(form, {'attr': {'class': 'w-full max-w-md'}}) }}
+                        {{ form_widget(form.submit, {'attr': {'class': 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
+                        {{ form_end(form) }}
+                    {% endif %}
+                    <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
+                        <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
+                            <p class="h-auto w-auto text-white shadow-outline-indigo rounded-lg m-2 bg-indigo-600 text-lg mb-4 px-2">Services</p>
+                        </button>
+
+                        <div id="dropdown{{ housework.id }}" class="hidden bg-white rounded-lg w-auto">
+                            <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
+                                {% if housework is not null and housework.participant is not null %}
+                                    {% for participant in housework.participant %}
+                                        <li class="py-2 text-left text-md font-medium hover:text-blue-600">
+                                            <p>
+                                                {% if participant.service is not null and participant.service.name is not null %}
+                                                    {{ participant.service.name }}
+                                                {% endif %}
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="absolute right-[5%] bottom-[5%] flex flex-col items-center sm:flex-row">
+                        <p class="text-lg px-2">
+                            {{ housework.customer.firstName }} {{ housework.customer.lastName|first }}
+                        </p>
+                        <div class="ml-2 h-12 w-12 rounded-full overflow-hidden">
+                            {% if app.user.image is not null %}
+                                <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
+                            {% else %}
+                                <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ housework.customer.firstName }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+
+
+
+
+    {% endblock %}

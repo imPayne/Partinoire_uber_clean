@@ -53,12 +53,12 @@ class Participant
 
     public function getCleaner(): ?cleaner
     {
-        return $this->cleaner;
+        return $this->Cleaner;
     }
 
     public function setCleaner(?cleaner $Cleaner): self
     {
-        $this->cleaner = $Cleaner;
+        $this->Cleaner = $Cleaner;
 
         return $this;
     }
