@@ -21,15 +21,23 @@
                             {{ housework.dateStart|date('l jS F g:i') }}
                         </time>
                     </p>
-                    {% if listParticipantHousework is not empty %}
-                        <p class="mb-20 text-lg px-2">
-                            Un Utilisateur à déjà proposé ses services!
-                        </p>
+                    {% if listParticipantHousework[0].cleaner is not empty %}
+                        {% if listParticipantHousework[0].cleaner == cleaner %}
+                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                                Vous êtes déjà inscrit à cette ménage party!
+                            </p>
+                        {% else %}
+                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                                Un Utilisateur à déjà proposé ses services!
+                            </p>
+                        {% endif %}
                     {% else %}
                         {{ form_start(form, {'attr': {'class': 'w-full max-w-md'}}) }}
                         {{ form_widget(form.submit, {'attr': {'class': 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
                         {{ form_end(form) }}
                     {% endif %}
+
+
                     <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
                         <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
                             <p class="h-auto w-auto text-white shadow-outline-indigo rounded-lg m-2 bg-indigo-600 text-lg mb-4 px-2">Services</p>
