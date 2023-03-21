@@ -49,11 +49,7 @@
                                     {{ housework.customer.firstName }} {{ housework.customer.lastName|first }}
                                 </p>
                                 <div class="ml-2 h-12 w-12 rounded-full overflow-hidden">
-                                    {% if app.user.image is not null %}
-                                        <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
-                                    {% else %}
-                                        <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ housework.customer.firstName }}">
-                                    {% endif %}
+                                    <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
                                 </div>
                             </div>
                             <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.id}) }}">Détail</a>

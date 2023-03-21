@@ -21,10 +21,14 @@
                             {{ housework.dateStart|date('l jS F g:i') }}
                         </time>
                     </p>
-                    {% if listParticipantHousework[0].cleaner is not empty %}
-                        {% if listParticipantHousework[0].cleaner == cleaner %}
+                    {% if listParticipantHousework[0].cleaner is not empty or housework.customer.id == app.user.id %}
+                        {% if listParticipantHousework[0].cleaner and  listParticipantHousework[0].cleaner.id == app.user.id %}
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Vous êtes déjà inscrit à cette ménage party!
+                            </p>
+                        {% elseif app.user.id == housework.customer.id %}
+                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                                Cette ménage party vous appartient!!
                             </p>
                         {% else %}
                             <p class="mb-20 text-lg px-2 text-indigo-500">

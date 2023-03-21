@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class MenagePartyController extends AbstractController
 {
@@ -27,7 +28,9 @@ class MenagePartyController extends AbstractController
             'houseworks' => $houseworks,
         ]);
     }
+
     #[Route('/menage_party/{id}', name: 'app_register_cleaner_to_housework', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function registerCleanerToHousework(ParticipantRepository $participantRepository, Housework $housework, CleanerRepository $cleanerRepository, HouseworkRepository $houseworkRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
