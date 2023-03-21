@@ -8,6 +8,7 @@ use App\Entity\Participant;
 use App\Entity\Service;
 use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
+use App\Repository\ParticipantRepository;
 use App\Repository\ServiceRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -104,7 +105,7 @@ class HouseworkController extends AbstractController
         ]);
     }
     #[Route('/my_houseworks', name: 'app_show_houseworks')]
-    public function myHouseworks(CustomerRepository $customerRepository): Response
+    public function myHouseworks(CustomerRepository $customerRepository, ParticipantRepository $participantRepository,  HouseworkRepository $houseworkRepository): Response
     {
         $user = $this->getUser();
         if (!$user) {

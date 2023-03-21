@@ -77,8 +77,6 @@ class RegistrationController extends AbstractController
         $user = new Cleaner();
         $form = $this->createForm(RegistrationCleanerFormType::class, $user);
         $form->handleRequest($request);
-
-
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
@@ -92,16 +90,11 @@ class RegistrationController extends AbstractController
                 $fileName = $fileUploader->upload($image);
                 $user->setImage($fileName);
             }
-
             $user->setRoles(["ROLE_CLEANER"]);
-
             $entityManager->persist($user);
-
             $entityManager->flush();
-
             return $this->redirectToRoute('home');
         }
-
         return $this->render('registration/registerCleaner.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
