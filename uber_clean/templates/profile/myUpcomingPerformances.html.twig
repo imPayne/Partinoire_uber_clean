@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uber Clean{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+
+
+    <div class="flex flex-col items-center justify-center">
+        <h1 class="mt-20 text-2xl font-bold mb-4">Vos Prochaines prestations</h1>
+        <div class="mt-10 mb-20 p-6 grid grid-cols-2">
+            {% if cleaner and myUpcomingPerformances %}
+                {% for housework in myUpcomingPerformances %}
+                    {{ dump(housework.housework) }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

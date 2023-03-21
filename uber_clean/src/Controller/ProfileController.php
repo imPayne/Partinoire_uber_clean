@@ -7,6 +7,8 @@ use App\Form\RegistrationCleanerFormType;
 use App\Form\RegistrationCustomerFormType;
 use App\Repository\CleanerRepository;
 use App\Repository\CustomerRepository;
+use App\Repository\HouseworkRepository;
+use App\Repository\ParticipantRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,6 +38,24 @@ class ProfileController extends AbstractController
             'user' => $user,
             'userType' => $userType,
             'isCleaner' => $user instanceof Cleaner,
+        ]);
+    }
+
+    #[Route('/profile/prochaines_prestations', name: 'app_upcoming_performances')]
+    public function prestations(HouseworkRepository $houseworkRepository, ParticipantRepository $participantRepository, CleanerRepository $cleanerRepository): Response
+    {
+        $user = $this->getUser();
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $cleaner = $cleanerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
+
+        $myUpcomingPerformances = $participantRepository->findBy(['Cleaner' => $cleaner]);
+
+        return $this->render('profile/myUpcomingPerformances.html.twig', [
+            'controller_name' => 'ProfileController',
+            'cleaner' => $cleaner,
+            'myUpcomingPerformances' => $myUpcomingPerformances,
         ]);
     }
 

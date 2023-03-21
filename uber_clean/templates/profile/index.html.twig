@@ -48,10 +48,14 @@
                     <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
                     <p class="text-md mb-4">Prénom: {{ app.user.firstName }}</p>
                     <p class="text-md mb-4">Nom: {{ app.user.lastName }}</p>
-                    <p class="text-md mb-4">Note: {{ app.user.note }}</p>
+                    <p class="text-lg font-bold mb-4">{{ app.user.note }} ⭐</p>
                     <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profile</a>
-
                 </div>
+                <div class="flex flex-col w-auto h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
+                    <img class="rounded-md mb-6 h-56 w-auto object-cover" src="{{ asset('images/proposez_vos_services.jpg') }}" alt="{{ app.user.firstName }}">
+                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/prochaines_prestations">Prochaines prestations</a>
+                </div>
+
             {% endif %}
         {% endfor %}
     </div>
