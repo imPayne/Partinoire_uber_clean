@@ -26,7 +26,8 @@ class RegistrationCustomerFormType extends AbstractType
             ->add('code_postal', TextType::class, ['required' => false])
             ->add('image', FileType::class, [
                 'data_class' => null,
-                'attr' => ['accept' => 'image/*']
+                'attr' => ['accept' => 'image/*'],
+                'required' => false,
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

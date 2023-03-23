@@ -27,7 +27,7 @@
                                     <p>{{ app.user.firstName|capitalize }} {{ app.user.lastName|first }}</p>
                                 </li>
                                 <li class="py-2 text-left text-md font-medium hover:text-blue-600">
-                                    <a href="{{ path('app_profile', {'id': app.user.id}) }}">Mon Profile</a>
+                                    <a href="{{ path('app_profile', {'id': app.user.id}) }}">Mon Profil</a>
                                 </li>
                                 {% for role in app.user.roles %}
                                     {% if "ROLE_CUSTOMER" in role %}

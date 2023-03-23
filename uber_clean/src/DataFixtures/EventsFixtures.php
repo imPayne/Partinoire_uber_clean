@@ -17,7 +17,7 @@ class EventsFixtures extends Fixture
         $service1->setIcon("vitres.jpeg");
 
         $service2 = new Service();
-        $service2->setName("Linges");
+        $service2->setName("Linge");
         $service2->setIcon("linges.jpg");
 
         $service3 = new Service();
@@ -25,7 +25,7 @@ class EventsFixtures extends Fixture
         $service3->setIcon("repassage.jpg");
 
         $service4 = new Service();
-        $service4->setName("Vaisselles");
+        $service4->setName("Vaisselle");
         $service4->setIcon("vaisselles.jpg");
 
         $service5 = new Service();

@@ -19,7 +19,7 @@
                     {% else %}
                         <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
                     {% endif %}
-                    <h2 class="text-lg font-bold mb-4">Profile de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+                    <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
                     <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
                     {% if not isCleaner %}
                         <p class="text-md mb-2">Adresse: {{ userType.adresse }}</p>
@@ -28,7 +28,7 @@
                     {% else %}
                         <p class="text-lg mb-2">Services: {{ userType.services }}</p>
                     {% endif %}
-                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profile</a>
+                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
                 </div>
                 <div class="flex flex-col w-96 h-96 m-10 p-10 items-center bg-gray-200 rounded-lg">
                     {# ajouter la liste des Match party du user connecté #}
@@ -44,12 +44,12 @@
                     {% else %}
                         <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
                     {% endif %}
-                    <h2 class="text-lg font-bold mb-4">Profile de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+                    <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
                     <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
                     <p class="text-md mb-4">Prénom: {{ app.user.firstName }}</p>
                     <p class="text-md mb-4">Nom: {{ app.user.lastName }}</p>
                     <p class="text-lg font-bold mb-4">{{ app.user.note }} ⭐</p>
-                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profile</a>
+                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
                 </div>
                 <div class="flex flex-col w-auto h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
                     <img class="rounded-md mb-6 h-56 w-auto object-cover" src="{{ asset('images/proposez_vos_services.jpg') }}" alt="{{ app.user.firstName }}">

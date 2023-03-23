@@ -16,7 +16,7 @@
                                     <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                                 {% endif %}
 
-                                <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
+                                <h1 class="text-xl font-bold mb-4">{{ housework.title }}</h1>
                                 <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
                                 <p class="text-lg mb-10">
                                     <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
@@ -59,7 +59,7 @@
                 </div>
             {% else %}
                     <div class="p-6 m-4 mt-32 flex h-96 w-full items-center justify-center">
-                        <h1 class="text-2xl mb-4 px-2">Aucune Ménages Party à affiché pour L'instant...☹</h1>
+                        <h1 class="text-2xl mb-4 px-2">Aucune Ménages Party à afficher pour l'instant...☹</h1>
                     </div>
             {% endif %}
         </div>

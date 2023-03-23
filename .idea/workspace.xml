@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aa153fb3-e6f0-4ed1-a486-64451e4e2b8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/uber_clean/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/src/DataFixtures/EventsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/src/DataFixtures/EventsFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/src/Form/RegistrationCustomerFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/src/Form/RegistrationCustomerFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/menage_party/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/menage_party/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/registration/registerCustomer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/registration/registerCustomer.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/uber_clean/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/composer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/uber_clean/vendor/symfonycasts/verify-email-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2LmDQLFSRfJeedDKSy9lxjl7wTY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/php/Partinoire_uber_clean&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean\uber_clean" />
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean" />
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean\uber-clean" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa153fb3-e6f0-4ed1-a486-64451e4e2b8b" name="Changes" comment="" />
+      <created>1676467347695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676467347695</updated>
+      <workItem from="1676467349608" duration="4239000" />
+      <workItem from="1679566393006" duration="950000" />
+      <workItem from="1679573966868" duration="2190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/uber_clean/templates/housework/myHouseworks.html.twig</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
