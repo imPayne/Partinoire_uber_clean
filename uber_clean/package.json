@@ -18,7 +18,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "server": "php -S localhost:8000 -t public",
+        "server": "php -S localhost:8000 -t public -c php.ini",
         "reload-db": "php bin/console doctrine:database:drop --force && php bin/console doctrine:database:create && php bin/console doctrine:migrations:migrate && php bin/console doctrine:fixtures:load",
         "push": "git add . && git commit -m $1 && git push",
         "dev-server": "encore dev-server",

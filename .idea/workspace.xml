@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpIncludePathManager">
+  <component name="ChangeListManager">
+    <list default="true" id="aa153fb3-e6f0-4ed1-a486-64451e4e2b8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/uber_clean/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/src/DataFixtures/EventsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/src/DataFixtures/EventsFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/src/Form/RegistrationCustomerFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/src/Form/RegistrationCustomerFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/menage_party/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/menage_party/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_clean/templates/registration/registerCustomer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/uber_clean/templates/registration/registerCustomer.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/uber_clean/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/uber_clean/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/uber_clean/vendor/theseer/tokenizer" />
@@ -137,10 +162,65 @@
       <path value="$PROJECT_DIR$/uber_clean/vendor/symfonycasts/verify-email-bundle" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
-  <component name="PhpUnit">
-    <phpunit_settings>
-      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/uber_clean/vendor/autoload.php" />
-    </phpunit_settings>
+  <component name="ProjectId" id="2LmDQLFSRfJeedDKSy9lxjl7wTY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/php/Partinoire_uber_clean&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean\uber_clean" />
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean" />
+      <recent name="C:\wamp64\www\php\Partinoire_uber_clean\uber-clean" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa153fb3-e6f0-4ed1-a486-64451e4e2b8b" name="Changes" comment="" />
+      <created>1676467347695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676467347695</updated>
+      <workItem from="1676467349608" duration="4239000" />
+      <workItem from="1679566393006" duration="950000" />
+      <workItem from="1679573966868" duration="2190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/uber_clean/templates/housework/myHouseworks.html.twig</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
