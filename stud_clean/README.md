@@ -1,4 +1,4 @@
-# Projet Uber_Clean
+# Projet stud_clean
 ## Installation du Projet
 #### Pour faire fonctionner ce projet sur votre machine, vous devez commencer par installer les dépendances du projet :
 
@@ -10,7 +10,7 @@ npm i
 Vous devez ensuite créer le fichier .env.local et saisir les informations de connexion à la base de données (ces données peuvent varier en fonction de votre environnement de développement) :
 
 ```
-DATABASE_URL="mysql://root:@127.0.0.1:3306/uber_clean_db?serverVersion=5.7&charset=utf8mb4"
+DATABASE_URL="mysql://root:@127.0.0.1:3306/stud_clean_db?serverVersion=5.7&charset=utf8mb4"
 ```
 
 Vous devez ensuite créer la base de données et les tables et charger les fixtures :
