@@ -16,20 +16,26 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
+use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 
 class MenagePartyFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $minDate = new \DateTime('+2 days');
+        $maxDate = new \DateTime('+2 month');
+
         $builder
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('dateStart', DateTimeType::class,  [
-                'date_widget' => 'single_text',
-                'placeholder' => [
-                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-                    'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
+            ->add('dateStart', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'constraints' => [
+                    new GreaterThanOrEqual($minDate),
+                    new LessThanOrEqual($maxDate),
                 ],
             ])
             ->add('listImage', FileType::class, [
@@ -37,6 +43,13 @@ class MenagePartyFormType extends AbstractType
                 'attr' => ['accept' => 'image/*'],
                 'mapped' => false,
                 'required' => false,
+            ])
+            ->add('services', EntityType::class, [
+                'label' => "Associé(s) un ou plusieurs services",
+                'class' => Service::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
             ])
         ;
     }

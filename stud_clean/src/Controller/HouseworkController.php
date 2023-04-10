@@ -6,6 +6,7 @@ use App\Entity\Customer;
 use App\Entity\Housework;
 use App\Entity\Participant;
 use App\Entity\Service;
+use App\Form\MenagePartyFormType;
 use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
 use App\Repository\ParticipantRepository;
@@ -40,36 +41,8 @@ class HouseworkController extends AbstractController
         }
         $newHousework = new Housework();
 
-        $services = $serviceRepository->findAll();
-        $serviceChoices = [];
-        foreach ($services as $service) {
-            $serviceChoices[$service->getName()] = $service->getName();
-        }
 
-        $form = $this->createFormBuilder()
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('dateStart', DateTimeType::class,  [
-                'date_widget' => 'single_text',
-                'placeholder' => [
-                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-                    'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
-                ],
-            ])
-            ->add('listImage', FileType::class, [
-                'multiple' => false,
-                'attr' => ['accept' => 'image/*'],
-                'mapped' => false,
-                'required' => false,
-            ])
-            ->add('services', ChoiceType::class, [
-                'label' => "Associé(s) un ou plusieurs services",
-                'choices' => $serviceChoices,
-                'multiple' => true,
-                'expanded' => true,
-            ])
-            ->getForm();
-
+        $form = $this->createForm(MenagePartyFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -101,7 +74,6 @@ class HouseworkController extends AbstractController
         return $this->render('housework/index.html.twig', [
             'controller_name' => 'HouseworkController',
             'form' => $form->createView(),
-            'services' => $serviceChoices
         ]);
     }
     #[Route('/my_houseworks', name: 'app_show_houseworks')]

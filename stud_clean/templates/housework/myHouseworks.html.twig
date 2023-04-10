@@ -7,8 +7,8 @@
         {{ include('_navbar.html.twig') }}
     {% endblock navbar %}
     <div class="flex items-center justify-center">
-        <div class="mt-10 p-6 grid grid-cols-2">
-            {% if app.user.houseworks %}
+        {% if app.user.houseworks is not empty %}
+            <div class="mt-10 p-6 grid grid-cols-2">
                 {% for housework in app.user.houseworks %}
                     <div class="flex flex-col p-6 m-4 h-auto w-auto bg-gray-200 rounded-md">
                         {% if housework.listImage is defined %}
@@ -28,8 +28,8 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div class="flex flex-col p-6 m-4 h-auto w-auto items-center justify-center bg-gray-200 rounded-md">
-                    <h1 class="text-xl font-bold mb-4 text-red-400">Vous n'avez pas de Ménage Party en cours.</h1>
+                <div class="flex items-center justify-center p-6 px-10 mx-4 h-96 w-auto bg-gray-200 rounded-md my-32">
+                    <h1 class="text-xl font-bold mb-4">Vous n'avez pas de Ménage Party en cours...</h1>
                 </div>
             {% endif %}
         </div>

@@ -14,8 +14,14 @@
 
             {{ form_start(form, {'attr': {'class': 'w-full max-w-md'}}) }}
             {{ form_row(form.title, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:shadow-outline-blue'}, 'label': 'Titre'}) }}
-            {{ form_row(form.description, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Description'}) }}
-            {{ form_row(form.dateStart, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Date'}) }}
+            {{ form_row(form.description, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Description de la/les tâches à réalisés'}) }}
+
+
+
+            {{ form_label(form.dateStart, 'Définissez votre date à l\'avance', {'class': 'block text-gray-700 font-bold mb-2'}) }}
+            {{ form_widget(form.dateStart, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:shadow-outline-blue', 'placeholder': 'Choisissez une date'}}) }}
+
+
             {{ form_label(form.listImage, 'Importer une image', {'label_attr': {'class': 'block text-gray-700 mb-2'}}) }}
             {{ form_widget(form.listImage, {'attr': {'class': 'border rounded py-2 px-3 w-full mb-4'}}) }}
             {{ form_errors(form.listImage) }}
