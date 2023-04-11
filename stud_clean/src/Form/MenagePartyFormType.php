@@ -3,19 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Housework;
-use App\Entity\Participant;
-use App\Entity\Service;
-use App\Repository\ServiceRepository;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
@@ -44,13 +39,7 @@ class MenagePartyFormType extends AbstractType
                 'mapped' => false,
                 'required' => false,
             ])
-            ->add('services', EntityType::class, [
-                'label' => "Associé(s) un ou plusieurs services",
-                'class' => Service::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-            ])
+            ->add('Participant', ParticipantFormType::class)
         ;
     }
 

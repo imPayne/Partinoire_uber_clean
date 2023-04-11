@@ -3,14 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uber_clean.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uber_clean.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HouseworkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HouseworkController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/MenagePartyFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MenagePartyFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/housework/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/housework/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/housework/myHouseworks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/housework/myHouseworks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/editProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/editProfile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,17 +170,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hmonc/OneDrive/Bureau/Dev/Stud_clean/stud_clean",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "terminal",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hmonc/OneDrive/Bureau/Dev/Stud_clean/stud_clean&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -197,7 +199,9 @@
       <workItem from="1677501176362" duration="275000" />
       <workItem from="1678373439120" duration="35398000" />
       <workItem from="1680800124332" duration="33000" />
-      <workItem from="1681151137700" duration="536000" />
+      <workItem from="1681151137700" duration="5664000" />
+      <workItem from="1681251735966" duration="106000" />
+      <workItem from="1681251849227" duration="2346000" />
     </task>
     <servers />
   </component>
@@ -214,6 +218,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/HouseworkController.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/HouseworkController.php</url>
+          <line>58</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

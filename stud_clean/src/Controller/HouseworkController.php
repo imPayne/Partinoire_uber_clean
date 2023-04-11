@@ -41,12 +41,13 @@ class HouseworkController extends AbstractController
         }
         $newHousework = new Housework();
 
-
         $form = $this->createForm(MenagePartyFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $customer = $customerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
+
             if ($customer) {
                 $newHousework->setDateStart($form->get('dateStart')->getData()); // passe l'objet DateTime à setDateStart()
                 $newHousework->setDescription($form->get('description')->getData());
@@ -57,8 +58,7 @@ class HouseworkController extends AbstractController
 
                 foreach ($form->get('services')->getData() as $serviceChoosen) {
                     $newParticipant = new Participant();
-                    $selectServiceFromDb = $serviceRepository->findOneBy(['name' => $serviceChoosen]);
-                    $newParticipant->setService($selectServiceFromDb);
+                    $newParticipant->setService($serviceChoosen);
                     $newHousework->addParticipant($newParticipant);
                     $entityManager->persist($newParticipant);
                 }
