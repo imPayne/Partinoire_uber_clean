@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Cleaner;
+use App\Entity\Customer;
 use App\Entity\Housework;
 use App\Entity\Participant;
 use App\Form\RegisterCleanerToHouseworkType;
 use App\Repository\CleanerRepository;
+use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
 use App\Repository\ParticipantRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,30 +33,45 @@ class MenagePartyController extends AbstractController
 
     #[Route('/menage_party/{id}', name: 'app_register_cleaner_to_housework', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
-    public function registerCleanerToHousework(ParticipantRepository $participantRepository, Housework $housework, CleanerRepository $cleanerRepository, HouseworkRepository $houseworkRepository, Request $request, EntityManagerInterface $entityManager): Response
+    public function registerCleanerToHousework(HouseworkRepository $houseworkRepository, CustomerRepository $customerRepository, ParticipantRepository $participantRepository, Housework $housework, CleanerRepository $cleanerRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
 
         $form = $this->createForm(RegisterCleanerToHouseworkType::class);
         $form->handleRequest($request);
 
-        if (!($user instanceof Cleaner)) {
+        if (!($user instanceof Cleaner) && !($user instanceof Customer)) {
             $this->redirectToRoute('app_login');
         }
 
         $cleaner = $cleanerRepository->findOneBy(['email' => $user->getEmail()]);
+        $customer = $customerRepository->findOneBy(['email' => $user->getEmail()]);
+
         $newCleanerParticipant = $participantRepository->findBy(['housework' => $housework]);
+        $getHousework = $houseworkRepository->findOneBy(['housework' => $housework]);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($form->get('submit')->isClicked()) {
-                foreach ($newCleanerParticipant as $participant) {
-                    $participant->setCleaner($cleaner);
-                    $housework->addParticipant($participant);
-                    $entityManager->persist($participant);
-                    $entityManager->flush();
+        if ($cleaner) {
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                if ($form->get('submit')->isClicked()) {
+                    foreach ($newCleanerParticipant as $participant) {
+                        $participant->setCleaner($cleaner);
+                        $housework->addParticipant($participant);
+                        $entityManager->persist($participant);
+                        $entityManager->flush();
+                    }
+
+                    return $this->redirectToRoute('app_register_cleaner_to_housework', ['id' => $housework->getId()]);
                 }
+            }
+        }
+        else if ($customer && $getHousework) {
+            $deleteForm = $this->createDeleteForm($housework);
+            $deleteForm->handleRequest($request);
 
-                return $this->redirectToRoute('app_register_cleaner_to_housework', ['id' => $housework->getId()]);
+            if ($deleteForm->isSubmitted() && $deleteForm->isValid()) {
+                $entityManager->remove($housework);
+                $entityManager->flush();
             }
         }
 
@@ -65,4 +82,6 @@ class MenagePartyController extends AbstractController
             'listParticipantHousework' => $newCleanerParticipant,
         ]);
     }
+
+
 }

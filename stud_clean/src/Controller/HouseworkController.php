@@ -25,12 +25,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\VarDumper\VarDumper;
 
 class HouseworkController extends AbstractController
 {
     /**
      * @throws OptimisticLockException
      * @throws ORMException
+     * @throws \Exception
      */
     #[Route('/housework', name: 'app_housework')]
     public function index(ServiceRepository $serviceRepository, FileUploader $fileUploader, Request $request, CustomerRepository $customerRepository, EntityManagerInterface $entityManager): Response
@@ -40,6 +42,7 @@ class HouseworkController extends AbstractController
             return ($this->redirectToRoute('app_login'));
         }
         $newHousework = new Housework();
+        $newParticipant = new Participant();
 
         $form = $this->createForm(MenagePartyFormType::class);
         $form->handleRequest($request);
@@ -47,22 +50,27 @@ class HouseworkController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $customer = $customerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
+            $participantForm = $form->get('Participant');
 
             if ($customer) {
-                $newHousework->setDateStart($form->get('dateStart')->getData()); // passe l'objet DateTime à setDateStart()
+                $newHousework->setDateStart($form->get('dateStart')->getData());
                 $newHousework->setDescription($form->get('description')->getData());
                 $newHousework->setTitle($form->get('title')->getData());
                 $image = $form->get('listImage')->getData();
                 $fileName = $fileUploader->upload($image);
                 $newHousework->setListImage($fileName);
+                $date = $form->get('dateStart')->getData();
+                $hour = $date->format('H:i');
+                $newHousework->setHour(new \DateTime($hour));
 
-                foreach ($form->get('services')->getData() as $serviceChoosen) {
-                    $newParticipant = new Participant();
-                    $newParticipant->setService($serviceChoosen);
-                    $newHousework->addParticipant($newParticipant);
-                    $entityManager->persist($newParticipant);
-                }
+                $serviceChoosen = $participantForm->get('service')->getData();
+                $newParticipant->setService($serviceChoosen);
+                $newParticipant->setHousework($newHousework);
+                $newHousework->addParticipant($newParticipant);
+                $entityManager->persist($newParticipant);
+
                 $customer->addHousework($newHousework);
+
                 $entityManager->persist($customer);
                 $entityManager->persist($newHousework);
                 $entityManager->flush();

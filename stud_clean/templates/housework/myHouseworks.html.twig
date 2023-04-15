@@ -18,13 +18,19 @@
                         <p class="text-left text-lg font-bold mb-4">Description: </p>
                         <p class="text-left text-lg mb-4">{{ housework.description }}</p>
                         <p class="text-left text-lg mb-4">
-                            <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
-                                Date: {{ housework.dateStart|date('l jS F g:i') }}
+                            <time datetime="{{ housework.dateStart|date('Y-m-d') }}">
+                                Date: {{ housework.dateStart|date('l jS F') }}
+                            </time>
+                        </p>
+                        <p class="text-left text-lg mb-4">
+                            <time datetime="{{ housework.hour|date('h:i') }}">
+                                Heure: {{ housework.hour|date('h') }}H{{ housework.hour|date('i') }}
                             </time>
                         </p>
                         <p class="text-left text-lg mb-4">Adresse: {{ app.user.adresse }}</p>
                         <p class="text-left text-lg mb-4">Code Postal: {{ app.user.codePostal }}</p>
                         <p class="text-left text-lg mb-4">Région: {{ app.user.region }}</p>
+                        <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.id}) }}">Détail</a>
                     </div>
                 {% endfor %}
             {% else %}

@@ -36,6 +36,9 @@ class Housework
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $list_image = null;
 
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
+    private ?\DateTimeInterface $Hour = null;
+
     public function __construct()
     {
         $this->Participant = new ArrayCollection();
@@ -78,11 +81,11 @@ class Housework
         return $this->Participant;
     }
 
-    public function addParticipant(Participant $Participant): self
+    public function addParticipant(Participant $participant): self
     {
-        if (!$this->Participant->contains($Participant)) {
-            $this->Participant->add($Participant);
-            $Participant->setHousework($this);
+        if (!$this->Participant->contains($participant)) {
+            $this->Participant[] = $participant;
+            $participant->setHousework($this);
         }
 
         return $this;
@@ -132,6 +135,18 @@ class Housework
     public function setListImage(?string $list_image): self
     {
         $this->list_image = $list_image;
+
+        return $this;
+    }
+
+    public function getHour(): ?\DateTimeInterface
+    {
+        return $this->Hour;
+    }
+
+    public function setHour(\DateTimeInterface $Hour): self
+    {
+        $this->Hour = $Hour;
 
         return $this;
     }

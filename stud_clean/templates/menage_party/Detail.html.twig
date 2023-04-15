@@ -30,6 +30,14 @@
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Cette ménage party vous appartient!!
                             </p>
+
+                            <form method="post">
+                                {{ form_widget(deleteForm) }}
+                                <button type="submit" class="mb-4 bg-red-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">Supprimer</button>
+                            </form>
+
+                            <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="/housework">Créer votre Ménage Party</a>
+
                         {% else %}
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Un Utilisateur à déjà proposé ses services!

@@ -14,11 +14,11 @@ class ParticipantFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('services', EntityType::class, [
-                'label' => "Associé(s) un ou plusieurs services",
+            ->add('service', EntityType::class, [
+                'label' => "Associer un service",
                 'class' => Service::class,
                 'choice_label' => 'name',
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true,
             ])
         ;

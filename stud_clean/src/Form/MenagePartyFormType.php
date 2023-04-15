@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Housework;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,18 +20,15 @@ class MenagePartyFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $minDate = new \DateTime('+2 days');
-        $maxDate = new \DateTime('+2 month');
-
         $builder
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('dateStart', DateType::class, [
+            ->add('dateStart', DateTimeType::class, [
+                'html5' => true,
                 'widget' => 'single_text',
-                'html5' => false,
-                'constraints' => [
-                    new GreaterThanOrEqual($minDate),
-                    new LessThanOrEqual($maxDate),
+                'attr' => [
+                    'min' => (new \DateTime('now'))->format('Y-m-d\TH:i'),
+                    'max' => (new \DateTime('+12 months'))->format('Y-m-d\TH:i'),
                 ],
             ])
             ->add('listImage', FileType::class, [
@@ -41,12 +39,5 @@ class MenagePartyFormType extends AbstractType
             ])
             ->add('Participant', ParticipantFormType::class)
         ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Housework::class,
-        ]);
     }
 }
