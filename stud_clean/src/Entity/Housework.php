@@ -24,7 +24,7 @@ class Housework
     #[ORM\JoinColumn(nullable: false)]
     private ?Customer $customer = null;
 
-    #[ORM\OneToMany(mappedBy: 'housework', targetEntity: Participant::class)]
+    #[ORM\OneToMany(mappedBy: 'housework', targetEntity: Participant::class, cascade: ['remove'])]
     private Collection $Participant;
 
     #[ORM\Column(length: 255)]

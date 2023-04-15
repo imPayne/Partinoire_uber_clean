@@ -72,6 +72,7 @@ class MenagePartyController extends AbstractController
             if ($deleteForm->isSubmitted() && $deleteForm->isValid()) {
                 $entityManager->remove($housework);
                 $entityManager->flush();
+                return $this->redirectToRoute('app_show_houseworks');
             }
         }
 

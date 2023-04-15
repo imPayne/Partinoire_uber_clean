@@ -4,7 +4,7 @@
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Housework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Housework.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +199,7 @@
       <workItem from="1681151137700" duration="5664000" />
       <workItem from="1681251735966" duration="106000" />
       <workItem from="1681251849227" duration="2402000" />
-      <workItem from="1681499853124" duration="15019000" />
+      <workItem from="1681499853124" duration="15453000" />
     </task>
     <servers />
   </component>
