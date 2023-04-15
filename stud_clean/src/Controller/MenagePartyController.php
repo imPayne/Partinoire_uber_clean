@@ -6,6 +6,7 @@ use App\Entity\Cleaner;
 use App\Entity\Customer;
 use App\Entity\Housework;
 use App\Entity\Participant;
+use App\Form\DeleteHouseworkFormType;
 use App\Form\RegisterCleanerToHouseworkType;
 use App\Repository\CleanerRepository;
 use App\Repository\CustomerRepository;
@@ -33,7 +34,7 @@ class MenagePartyController extends AbstractController
 
     #[Route('/menage_party/{id}', name: 'app_register_cleaner_to_housework', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
-    public function registerCleanerToHousework(HouseworkRepository $houseworkRepository, CustomerRepository $customerRepository, ParticipantRepository $participantRepository, Housework $housework, CleanerRepository $cleanerRepository, Request $request, EntityManagerInterface $entityManager): Response
+    public function registerCleanerToHousework(Housework $housework, HouseworkRepository $houseworkRepository, CustomerRepository $customerRepository, ParticipantRepository $participantRepository, CleanerRepository $cleanerRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
 
@@ -43,15 +44,17 @@ class MenagePartyController extends AbstractController
         if (!($user instanceof Cleaner) && !($user instanceof Customer)) {
             $this->redirectToRoute('app_login');
         }
-
+        $id = $request->get('id');
         $cleaner = $cleanerRepository->findOneBy(['email' => $user->getEmail()]);
         $customer = $customerRepository->findOneBy(['email' => $user->getEmail()]);
 
         $newCleanerParticipant = $participantRepository->findBy(['housework' => $housework]);
-        $getHousework = $houseworkRepository->findOneBy(['housework' => $housework]);
+        $getHousework = $houseworkRepository->find($id);
+
+        $deleteForm = $this->createForm(DeleteHouseworkFormType::class);
+        $deleteForm->handleRequest($request);
 
         if ($cleaner) {
-
             if ($form->isSubmitted() && $form->isValid()) {
                 if ($form->get('submit')->isClicked()) {
                     foreach ($newCleanerParticipant as $participant) {
@@ -66,9 +69,6 @@ class MenagePartyController extends AbstractController
             }
         }
         else if ($customer && $getHousework) {
-            $deleteForm = $this->createDeleteForm($housework);
-            $deleteForm->handleRequest($request);
-
             if ($deleteForm->isSubmitted() && $deleteForm->isValid()) {
                 $entityManager->remove($housework);
                 $entityManager->flush();
@@ -78,6 +78,7 @@ class MenagePartyController extends AbstractController
         return $this->render('menage_party/Detail.html.twig', [
             'housework' => $housework,
             'form' => $form->createView(),
+            'deleteForm' => $deleteForm->createView(),
             'cleaner' => $cleaner,
             'listParticipantHousework' => $newCleanerParticipant,
         ]);
