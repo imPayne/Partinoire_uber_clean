@@ -60,8 +60,9 @@ class HouseworkController extends AbstractController
                 $fileName = $fileUploader->upload($image);
                 $newHousework->setListImage($fileName);
                 $date = $form->get('dateStart')->getData();
-                $hour = $date->format('H:i');
-                $newHousework->setHour(new \DateTime($hour));
+                $newHousework->setDateStart($date);
+                $newHours = $form->get('hours')->getData();
+                $newHousework->setHour(new \DateTime($newHours));
 
                 $serviceChoosen = $participantForm->get('service')->getData();
                 $newParticipant->setService($serviceChoosen);

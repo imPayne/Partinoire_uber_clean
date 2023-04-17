@@ -8,7 +8,7 @@
     {% endblock navbar %}
     <div class="flex items-center justify-center">
         {% if app.user.houseworks is not empty %}
-            <div class="mt-10 p-6 grid grid-cols-2">
+            <div class="mt-10 p-6 grid grid-cols-3">
                 {% for housework in app.user.houseworks %}
                     <div class="flex flex-col p-6 m-4 h-auto w-auto bg-gray-200 rounded-md">
                         {% if housework.listImage is defined %}

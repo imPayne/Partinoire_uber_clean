@@ -84,6 +84,4 @@ class MenagePartyController extends AbstractController
             'listParticipantHousework' => $newCleanerParticipant,
         ]);
     }
-
-
 }
