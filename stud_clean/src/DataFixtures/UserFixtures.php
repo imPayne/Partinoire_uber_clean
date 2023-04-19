@@ -30,6 +30,7 @@ class UserFixtures extends Fixture
         $user->setLastName("Administrator");
         $user->setRoles(['ROLE_CUSTOMER']);
         $user->setImage("admin-6439f330cc79a.png");
+        $user->setPhoneNumber("0772378558");
         $password = $this->hasher->hashPassword($user, 'admin');
         $user->setPassword($password);
         $manager->persist($user);

@@ -22,6 +22,9 @@ class Customer extends User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $region = null;
 
+    #[ORM\Column(length: 15)]
+    private ?string $PhoneNumber = null;
+
     public function __construct()
     {
         $this->houseworks = new ArrayCollection();
@@ -88,6 +91,18 @@ class Customer extends User
     public function setRegion(?string $region): self
     {
         $this->region = $region;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->PhoneNumber;
+    }
+
+    public function setPhoneNumber(string $PhoneNumber): self
+    {
+        $this->PhoneNumber = $PhoneNumber;
 
         return $this;
     }
