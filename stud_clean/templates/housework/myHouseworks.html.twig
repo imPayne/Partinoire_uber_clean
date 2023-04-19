@@ -19,9 +19,10 @@
                         <p class="text-left text-lg mb-4">{{ housework.description }}</p>
                         <p class="text-left text-lg mb-4">
                             <time datetime="{{ housework.dateStart|date('Y-m-d') }}">
-                                Date: {{ housework.dateStart|date('l jS F') }}
+                                Date: {{ housework.dateStart|date('d/m/Y') }}
                             </time>
                         </p>
+
                         <p class="text-left text-lg mb-4">
                             <time datetime="{{ housework.hour|date('h:i') }}">
                                 Heure: {{ housework.hour|date('h') }}H{{ housework.hour|date('i') }}
