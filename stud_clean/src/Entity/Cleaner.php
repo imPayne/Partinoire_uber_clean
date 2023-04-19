@@ -17,6 +17,9 @@ class Cleaner extends User
     #[ORM\Column(type: Types::DECIMAL, precision: 2, scale: 1, nullable: true)]
     private ?string $note = null;
 
+    #[ORM\Column(length: 15)]
+    private ?string $PhoneNumber = null;
+
     public function __construct()
     {
         $this->services = new ArrayCollection();
@@ -57,6 +60,18 @@ class Cleaner extends User
     public function setNote(?string $note): self
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->PhoneNumber;
+    }
+
+    public function setPhoneNumber(string $PhoneNumber): self
+    {
+        $this->PhoneNumber = $PhoneNumber;
 
         return $this;
     }

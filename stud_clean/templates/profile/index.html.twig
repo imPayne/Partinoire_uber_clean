@@ -48,7 +48,13 @@
                     <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
                     <p class="text-md mb-4">Prénom: {{ app.user.firstName }}</p>
                     <p class="text-md mb-4">Nom: {{ app.user.lastName }}</p>
-                    <p class="text-lg font-bold mb-4">{{ app.user.note }} ⭐</p>
+                    <p class="text-md mb-4">N° de Téléphone: {{ app.user.phoneNumber }}</p>
+                    {% if app.user.note is not defined or app.user.note == 0 %}
+                        <p class="text-lg mb-4"> Pas encore de note...⭐</p>
+                    {% else %}
+                        <p class="text-lg mb-4"> {{ app.user.note }}⭐</p>
+                    {% endif %}
+                    
                     <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
                 </div>
                 <div class="flex flex-col w-auto h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">

@@ -20,6 +20,11 @@ class RegistrationCleanerFormType extends AbstractType
             ->add('email')
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
+            ->add('phoneNumber', TextType::class, [
+                'attr' => [
+                    'maxlength' => 15,
+                ],
+            ])
             ->add('image', FileType::class, [
                 'data_class' => null,
                 'attr' => ['accept' => 'image/*']

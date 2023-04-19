@@ -48,6 +48,8 @@ class RegistrationController extends AbstractController
 
             $user->setRoles(["ROLE_CUSTOMER"]);
 
+            $user->setPhoneNumber($form->get('phoneNumber')->getData());
+
             if ($form->get('adresse')->getData()) {
                 $user->setAdresse($form->get('adresse')->getData());
             }
@@ -90,6 +92,7 @@ class RegistrationController extends AbstractController
                 $fileName = $fileUploader->upload($image);
                 $user->setImage($fileName);
             }
+            $user->setPhoneNumber($form->get('phoneNumber')->getData());
             $user->setRoles(["ROLE_CLEANER"]);
             $entityManager->persist($user);
             $entityManager->flush();
