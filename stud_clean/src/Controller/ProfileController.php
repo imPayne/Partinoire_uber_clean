@@ -52,9 +52,12 @@ class ProfileController extends AbstractController
 
         $myUpcomingPerformances = $participantRepository->findBy(['Cleaner' => $cleaner]);
 
+        $menagePartyRegistered = $houseworkRepository->findBy(['id' => $myUpcomingPerformances]);
+
         return $this->render('profile/myUpcomingPerformances.html.twig', [
             'controller_name' => 'ProfileController',
             'cleaner' => $cleaner,
+            'menagePartyRegistered' => $menagePartyRegistered,
             'myUpcomingPerformances' => $myUpcomingPerformances,
         ]);
     }

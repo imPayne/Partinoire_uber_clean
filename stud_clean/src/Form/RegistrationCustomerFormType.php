@@ -25,7 +25,7 @@ class RegistrationCustomerFormType extends AbstractType
                 'attr' => [
                     'maxlength' => 15,
                 ],
-            ])            
+            ])     
             ->add('adresse', TextType::class, ['required' => false])
             ->add('region', TextType::class, ['required' => false])
             ->add('code_postal', TextType::class, ['required' => false])

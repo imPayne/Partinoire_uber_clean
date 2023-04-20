@@ -37,6 +37,11 @@
                                         <li class="py-2 text-left text-md font-medium hover:text-blue-600">
                                             <a href="{{ path('app_housework', {'id': app.user.id}) }}">Nouvelle Ménage Party</a>
                                         </li>
+
+                                        {% elseif "ROLE_CLEANER" in role %}
+                                            <li class="py-2 text-left text-md font-medium hover:text-blue-600">
+                                                <a href="/profile/prochaines_prestations">Prochaines prestations</a>
+                                            </li>
                                     {% endif %}
                                 {% endfor %}
                                 <li class="py-2 text-left text-md font-medium text-red-400 hover:text-red-800">

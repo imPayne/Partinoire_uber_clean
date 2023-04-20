@@ -13,7 +13,28 @@
         <div class="mt-10 mb-20 p-6 grid grid-cols-2">
             {% if cleaner and myUpcomingPerformances %}
                 {% for housework in myUpcomingPerformances %}
-                    {{ dump(housework.housework) }}
+                        <div class="flex flex-col p-6 m-4 h-auto w-auto bg-gray-200 rounded-md">
+                            {% if housework.housework.listImage is defined %}
+                                <img class="rounded-md mb-6 h-56 h-56 object-cover" src="{{ asset('uploads/' ~ housework.housework.listImage) }}" alt="image">
+                            {% endif %}
+                            <h1 class="text-center text-xl font-bold mb-4">{{ housework.housework.title }}</h1>
+                            <p class="text-left text-lg font-bold mb-4">Description: </p>
+                            <p class="text-left text-lg mb-4">{{ housework.housework.description }}</p>
+                            <p class="text-left text-lg mb-4">
+                                <time datetime="{{ housework.housework.dateStart|date('Y-m-d') }}">
+                                    Date: {{ housework.housework.dateStart|date('d/m/Y') }}
+                                </time>
+                            </p>
+
+                            <p class="text-left text-lg mb-4">
+                                <time datetime="{{ housework.housework.hour|date('h:i') }}">
+                                    Heure: {{ housework.housework.hour|date('h') }}H{{ housework.housework.hour|date('i') }}
+                                </time>
+                            </p>
+                            <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.housework.id}) }}">Détail</a>
+                        </div>
+
+
                 {% endfor %}
             {% endif %}
         </div>
