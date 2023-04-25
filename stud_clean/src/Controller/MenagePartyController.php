@@ -8,6 +8,7 @@ use App\Entity\Housework;
 use App\Entity\Participant;
 use App\Form\DeleteHouseworkFormType;
 use App\Form\RegisterCleanerToHouseworkType;
+use App\Form\UnsubscribeCleanFromHouseworkType;
 use App\Repository\CleanerRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\HouseworkRepository;
@@ -54,6 +55,9 @@ class MenagePartyController extends AbstractController
         $deleteForm = $this->createForm(DeleteHouseworkFormType::class);
         $deleteForm->handleRequest($request);
 
+        $unsubscribeForm = $this->createForm(UnsubscribeCleanFromHouseworkType::class);
+        $unsubscribeForm->handleRequest($request);
+
         if ($cleaner) {
             if ($form->isSubmitted() && $form->isValid()) {
                 if ($form->get('submit')->isClicked()) {
@@ -63,8 +67,18 @@ class MenagePartyController extends AbstractController
                         $entityManager->persist($participant);
                         $entityManager->flush();
                     }
-
                     return $this->redirectToRoute('app_register_cleaner_to_housework', ['id' => $housework->getId()]);
+                }
+            }
+            if ($unsubscribeForm->isSubmitted() && $unsubscribeForm->isValid()) {
+                if ($unsubscribeForm->get('submit')->isClicked()) {
+                    foreach ($newCleanerParticipant as $participant) {
+                        $participant->setCleaner(null);
+                        $entityManager->persist($participant);
+                        $entityManager->flush();
+                    }
+
+                    return $this->redirectToRoute('app_upcoming_performances');
                 }
             }
         }
@@ -82,6 +96,7 @@ class MenagePartyController extends AbstractController
             'deleteForm' => $deleteForm->createView(),
             'cleaner' => $cleaner,
             'listParticipantHousework' => $newCleanerParticipant,
+            'unsubscribeForm' => $unsubscribeForm,
         ]);
     }
 }

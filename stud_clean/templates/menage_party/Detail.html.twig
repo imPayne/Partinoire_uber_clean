@@ -23,12 +23,17 @@
                     </p>
                     {% if listParticipantHousework[0].cleaner is not empty or housework.customer.id == app.user.id %}
                         {% if listParticipantHousework[0].cleaner and  listParticipantHousework[0].cleaner.id == app.user.id %}
-                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                            <p class="mb-12 text-lg px-2 text-indigo-500">
                                 Vous êtes déjà inscrit à cette ménage party!
                             </p>
-                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                            <p class="mb-12 text-lg px-2 text-indigo-500">
                                 N° du Customer: {{ housework.customer.PhoneNumber }}
                             </p>
+
+                            {{ form_start(unsubscribeForm) }}
+                            {{ form_widget(unsubscribeForm.submit, {'attr': {'class': 'mb-4 bg-red-400 hover:bg-red-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
+                            {{ form_end(unsubscribeForm) }}
+
                         {% elseif app.user.id == housework.customer.id %}
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Cette ménage party vous appartient!!
