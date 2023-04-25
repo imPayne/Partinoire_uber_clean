@@ -28,7 +28,7 @@
 
                             <p class="text-left text-lg mb-4">
                                 <time datetime="{{ housework.housework.hour|date('h:i') }}">
-                                    Heure: {{ housework.housework.hour|date('h') }}H{{ housework.housework.hour|date('i') }}
+                                    Heure: {{ housework.housework.hour|date('H:i') }}
                                 </time>
                             </p>
                             <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.housework.id}) }}">Détail</a>

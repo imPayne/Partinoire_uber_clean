@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menage_party/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +208,7 @@
       <workItem from="1682120908888" duration="525000" />
       <workItem from="1682313855685" duration="2000" />
       <workItem from="1682423772186" duration="6000" />
-      <workItem from="1682438135244" duration="3488000" />
+      <workItem from="1682438135244" duration="3847000" />
     </task>
     <servers />
   </component>

@@ -17,8 +17,8 @@
                     <h1 class="text-xl font-bold mb-4">Titre: {{ housework.title }}</h1>
                     <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
                     <p class="text-lg mb-6">
-                        <time datetime="{{ housework.dateStart|date('Y-m-d h:i') }}">
-                            {{ housework.dateStart|date('l jS F g:i') }}
+                        <time datetime="{{ housework.dateStart|date('Y-m-d') }}">
+                            Date : {{ housework.dateStart|date('d/m/Y') }} {{ housework.hour|date('H:i') }}
                         </time>
                     </p>
                     {% if listParticipantHousework[0].cleaner is not empty or housework.customer.id == app.user.id %}
