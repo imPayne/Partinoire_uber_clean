@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/EventsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/EventsFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/myUpcomingPerformances.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +210,9 @@
       <workItem from="1682120908888" duration="525000" />
       <workItem from="1682313855685" duration="2000" />
       <workItem from="1682423772186" duration="6000" />
-      <workItem from="1682438135244" duration="3847000" />
+      <workItem from="1682438135244" duration="4483000" />
+      <workItem from="1682564493789" duration="6000" />
+      <workItem from="1682623451994" duration="1687000" />
     </task>
     <servers />
   </component>

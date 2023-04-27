@@ -40,7 +40,7 @@ class UserFixtures extends Fixture
         $user2->setFirstName('Cleaner');
         $user2->setEmail('cleaner@gmail.com');
         $user2->setLastName('Néttoyeur');
-        $user2->setImage("admin-6439f330cc79a.png");
+        $user2->setImage("tumblr-o2wotyHcxt1t0l1jvo1-500-64417cedda35a.gif");
         $user2->setPhoneNumber("0747247418");
         $user2->setNote(4.9);
         $password2 = $this->hasher->hashPassword($user2, 'cleaner');
