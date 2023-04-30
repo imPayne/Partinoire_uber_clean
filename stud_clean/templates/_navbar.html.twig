@@ -40,7 +40,7 @@
 
                                         {% elseif "ROLE_CLEANER" in role %}
                                             <li class="py-2 text-left text-md font-medium hover:text-blue-600">
-                                                <a href="/profile/prochaines_prestations">Prochaines prestations</a>
+                                                <a href="{{ path('app_upcoming_performances') }}">Prochaines prestations</a>
                                             </li>
                                     {% endif %}
                                 {% endfor %}

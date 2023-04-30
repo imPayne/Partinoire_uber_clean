@@ -12,6 +12,7 @@ use App\Repository\ParticipantRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -41,7 +42,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/profile/prochaines_prestations', name: 'app_upcoming_performances')]
+    #[Route('/profile/upcoming_performances', name: 'app_upcoming_performances')]
     public function prestations(HouseworkRepository $houseworkRepository, ParticipantRepository $participantRepository, CleanerRepository $cleanerRepository): Response
     {
         $user = $this->getUser();
@@ -73,57 +74,73 @@ class ProfileController extends AbstractController
         $customer = $customerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
         $cleaner = $cleanerRepository->findOneBy(['email' => $user->getUserIdentifier()]);
 
+
         if ($customer) {
-            $form = $this->createForm(RegistrationCustomerFormType::class, $user);
+            $form = $this->createForm(RegistrationCustomerFormType::class, $user, [
+                'is_edit_profile' => true,
+            ]);
             $form->handleRequest($request);
         }
         else {
-            $form = $this->createForm(RegistrationCleanerFormType::class, $user);
+            $form = $this->createForm(RegistrationCleanerFormType::class, $user, [
+                'is_edit_profile' => true,
+            ]);
             $form->handleRequest($request);
         }
+        $currentPassword = $form->get('currentPassword')->getData();
+        $userPassword = null;
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-
             if ($customer) {
-                $customer->setPassword(
-                    $userPasswordHasher->hashPassword(
-                        $user,
-                        $form->get('plainPassword')->getData()
-                    )
-                );
-                $image = $form->get('image')->getData();
-                if ($image) {
-                    $fileName = $fileUploader->upload($image);
-                    $customer->setImage($fileName);
+                $userPassword = $customer->getPassword();
+                if (!password_verify($currentPassword, $userPassword)) {
+                    $form->get('currentPassword')->addError(new FormError('Incorrecte!!'));
                 }
-                $entityManager->persist($customer);
+                elseif (password_verify($currentPassword, $userPassword)) {
+                    $image = $form->get('image')->getData();
+                    if ($form->get('plainPassword')->getData()) {
+                        $customer->setPassword(
+                            $userPasswordHasher->hashPassword(
+                                $user,
+                                $form->get('plainPassword')->getData()
+                            )
+                        );
+                        $entityManager->persist($customer);
+                    }
+                    if ($image) {
+                        $fileName = $fileUploader->upload($image);
+                        $customer->setImage($fileName);
+                    }
+                    $entityManager->persist($customer);
+                }
             }
+
             elseif ($cleaner) {
-                $cleaner->setPassword(
-                    $userPasswordHasher->hashPassword(
-                        $user,
-                        $form->get('plainPassword')->getData()
-                    )
-                );
-
+                $userPassword = $cleaner->getPassword();
                 $image = $form->get('image')->getData();
-                if ($image) {
-                    $fileName = $fileUploader->upload($image);
-                    $cleaner->setImage($fileName);
+                if (!password_verify($currentPassword, $userPassword)) {
+                    $form->get('currentPassword')->addError(new FormError('Incorrecte!!'));
                 }
-                $entityManager->persist($cleaner);
+                elseif (password_verify($currentPassword, $userPassword)) {
+                    if ($form->get('plainPassword')->getData()) {
+                        $user->setPassword(
+                            $userPasswordHasher->hashPassword(
+                                $user,
+                                $form->get('plainPassword')->getData()
+                            )
+                        );
+                        $entityManager->persist($cleaner);
+                    }
+                    if ($image) {
+                        $fileName = $fileUploader->upload($image);
+                        $cleaner->setImage($fileName);
+                    }
+                    $entityManager->persist($cleaner);
+                }
             }
-
             $entityManager->flush();
-            //$flashBag->add('success', 'Profil mis à jour avec succès!');
-
-            $this->addFlash(
-                'notice',
-                'Profil mis à jour avec succès!',
-            );
-
-            return $this->redirectToRoute('app_profile');
+            if (password_verify($currentPassword, $userPassword))
+                return $this->redirectToRoute('app_profile');
         }
 
         $userType = $customer ?? $cleaner;
