@@ -9,7 +9,7 @@
 
         <div class="flex items-center justify-center">
             {% if housework is not empty %}
-                <div class="relative flex flex-col p-6 m-4 h-full w-[35rem] items-center bg-gray-200 rounded-md">
+                <div class="my-44 relative flex flex-col p-6 m-4 h-full w-[35rem] items-center bg-gray-200 rounded-md">
                     {% if housework.listImage is defined %}
                         <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
                     {% endif %}
