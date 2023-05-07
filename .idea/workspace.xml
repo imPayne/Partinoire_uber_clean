@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aa153fb3-e6f0-4ed1-a486-64451e4e2b8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stud_clean/src/Controller/HouseworkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/stud_clean/src/Controller/HouseworkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stud_clean/src/Form/MenagePartyFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/stud_clean/src/Form/MenagePartyFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stud_clean/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/stud_clean/templates/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stud_clean/templates/housework/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/stud_clean/templates/housework/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +166,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hmonc/OneDrive/Bureau/Dev/Stud_clean/stud_clean",
+    "last_opened_file_path": "C:/Users/Payne HM/Desktop/php/Stud_clean",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -200,6 +196,7 @@
       <workItem from="1680974888187" duration="2668000" />
       <workItem from="1680993224331" duration="3975000" />
       <workItem from="1681151059061" duration="76000" />
+      <workItem from="1683297332282" duration="5331000" />
     </task>
     <servers />
   </component>
