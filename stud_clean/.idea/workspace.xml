@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="" />
+    <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +151,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
     </include_path>
@@ -210,7 +213,10 @@
       <workItem from="1682793495369" duration="4507000" />
       <workItem from="1682805010791" duration="7463000" />
       <workItem from="1683047697006" duration="600000" />
-      <workItem from="1683216043675" duration="934000" />
+      <workItem from="1683216043675" duration="997000" />
+      <workItem from="1683653949148" duration="295000" />
+      <workItem from="1683682414237" duration="1305000" />
+      <workItem from="1683832527798" duration="197000" />
     </task>
     <servers />
   </component>
