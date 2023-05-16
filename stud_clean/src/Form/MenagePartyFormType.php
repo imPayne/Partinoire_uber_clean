@@ -52,6 +52,7 @@ class MenagePartyFormType extends AbstractType
                 'attr' => ['accept' => 'image/*'],
                 'mapped' => false,
                 'required' => false,
+                'data_class' => null,
             ])
             ->add('Participant', ParticipantFormType::class)
         ;

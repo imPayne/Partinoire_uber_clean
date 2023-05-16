@@ -7,6 +7,10 @@ use App\Entity\Customer;
 use App\Entity\Housework;
 use App\Entity\Participant;
 use App\Form\DeleteHouseworkFormType;
+use App\Form\EditMenagePartyFormType;
+use App\Form\MenagePartyFormType;
+use App\Service\FileUploader;
+use Symfony\Component\VarDumper\VarDumper;
 use App\Form\RegisterCleanerToHouseworkType;
 use App\Form\UnsubscribeCleanFromHouseworkType;
 use App\Repository\CleanerRepository;
@@ -58,6 +62,9 @@ class MenagePartyController extends AbstractController
         $unsubscribeForm = $this->createForm(UnsubscribeCleanFromHouseworkType::class);
         $unsubscribeForm->handleRequest($request);
 
+        $editFormButton = $this->createForm(EditMenagePartyFormType::class);
+        $editFormButton->handleRequest($request);
+
         if ($cleaner) {
             if ($form->isSubmitted() && $form->isValid()) {
                 if ($form->get('submit')->isClicked()) {
@@ -88,15 +95,75 @@ class MenagePartyController extends AbstractController
                 $entityManager->flush();
                 return $this->redirectToRoute('app_show_houseworks');
             }
+
+            else if ($editFormButton->isSubmitted() && $editFormButton->isValid()) {
+                return $this->redirectToRoute('app_edit_housework', ['id' => $housework->getId()]);            }
         }
 
         return $this->render('menage_party/Detail.html.twig', [
             'housework' => $housework,
             'form' => $form->createView(),
             'deleteForm' => $deleteForm->createView(),
+            'editFormButton' => $editFormButton->createView(),
             'cleaner' => $cleaner,
             'listParticipantHousework' => $newCleanerParticipant,
             'unsubscribeForm' => $unsubscribeForm,
+        ]);
+    }
+    #[Route('/menage_party/edit/{id}', name: 'app_edit_housework', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_CUSTOMER')] //Changer par ROLE_USER si jamais ca ne fonctionne pas
+    public function editHousework(FileUploader $fileUploader, Housework $housework, HouseworkRepository $houseworkRepository, CustomerRepository $customerRepository, ParticipantRepository $participantRepository, CleanerRepository $cleanerRepository, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $idMenageParty = $request->get('id');
+        $editHousework = $houseworkRepository->find($idMenageParty);
+        $customer = $customerRepository->findOneBy(['email' => $this->getUser()->getUserIdentifier()]);
+
+        $editForm = $this->createForm(MenagePartyFormType::class);
+
+        $editForm->get('title')->setData($editHousework->getTitle());
+        $editForm->get('description')->setData($editHousework->getDescription());
+        $editForm->get('dateStart')->setData($editHousework->getDateStart());
+        $hourIntoString = $editHousework->getHour()->format('H:i');
+        $editForm->get('hours')->setData($hourIntoString);
+        $participantForm = $editForm->get('Participant');
+
+        $editForm->handleRequest($request);
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            // Modifier les données de l'entité Housework à partir des valeurs du formulaire
+            if ($editForm->get('title')->getData() !== $editHousework->getTitle()) {
+                $editHousework->setTitle($editForm->get('title')->getData());
+            }
+            if ($editForm->get('description')->getData() !== $editHousework->getDescription()) {
+                $editHousework->setDescription($editForm->get('description')->getData());
+            }
+            if ($editForm->get('dateStart')->getData() !== $editHousework->getDateStart()) {
+                $editHousework->setDateStart($editForm->get('dateStart')->getData());
+            }
+            if ($editForm->get('hours')->getData() !== $hourIntoString) {
+                $newHours = $editForm->get('hours')->getData();
+                $editHousework->setHour(new \DateTime($newHours));
+            }
+            if ($editForm->get('listImage')->getData()) {
+                $image = $editForm->get('listImage')->getData();
+                $fileName = $fileUploader->upload($image);
+                $editHousework->setListImage($fileName);
+            }
+            if ($participantForm->get('service')->getData()) {
+                // Modifier les données de l'entité Participant si un service a été choisi dans le formulaire
+                $newParticipant = $participantRepository->findOneBy(['housework' => $editHousework]);
+                if ($newParticipant) {
+                    $newParticipant->setService($participantForm->get('service')->getData());
+                    $newParticipant->setHousework($editHousework);
+                    $entityManager->persist($newParticipant);
+                }
+            }
+            $entityManager->flush();
+        }
+
+        return $this->render('menage_party/edit.html.twig' , [
+            'editForm' => $editForm->createView(),
+            'houseworkToEdit' => $editHousework,
+            'customer' => $customer,
         ]);
     }
 }
