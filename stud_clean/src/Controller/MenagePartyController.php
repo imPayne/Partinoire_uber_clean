@@ -104,10 +104,10 @@ class MenagePartyController extends AbstractController
             'housework' => $housework,
             'form' => $form->createView(),
             'deleteForm' => $deleteForm->createView(),
+            'unsubscribeForm' => $unsubscribeForm->createView(),
             'editFormButton' => $editFormButton->createView(),
             'cleaner' => $cleaner,
             'listParticipantHousework' => $newCleanerParticipant,
-            'unsubscribeForm' => $unsubscribeForm,
         ]);
     }
     #[Route('/menage_party/edit/{id}', name: 'app_edit_housework', methods: ['GET', 'POST'])]
@@ -158,6 +158,7 @@ class MenagePartyController extends AbstractController
                 }
             }
             $entityManager->flush();
+            return $this->redirectToRoute('app_menage_party', ['id' => $housework->getId()]);
         }
 
         return $this->render('menage_party/edit.html.twig' , [

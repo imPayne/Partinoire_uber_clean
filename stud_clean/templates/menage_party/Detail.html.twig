@@ -49,24 +49,26 @@
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Cette ménage party vous appartient!!
                             </p>
-
+                            {# bouton de suppression de ménage party #}
                             {{ form_start(deleteForm) }}
                             {{ form_widget(deleteForm.delete, {'attr': {'class': 'mb-4 bg-red-400 hover:bg-red-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}, 'label': 'Supprimer'}) }}
                             {{ form_end(deleteForm) }}
 
+
+                            {# bouton de modification de ménage party #}
+                            {{ form_start(editFormButton, {'attr': {'class': 'w-full max-w-md'}}) }}
+                            {{ form_widget(editFormButton.edit, {'attr': {'class': 'mb-4 bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}, 'label': 'Modifier'}) }}
+                            {{ form_end(editFormButton) }}
                         {% else %}
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Un Utilisateur à déjà proposé ses services!
                             </p>
                         {% endif %}
                     {% else %}
-
+                        {{ form_start(form) }}
+                        {{ form_widget(form.submit, {'attr': {'class': 'mb-10 mt-10 bg-indigo-400 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
+                        {{ form_end(form) }}
                     {% endif %}
-
-                    {# bouton de modification de ménage party #}
-                    {{ form_start(editFormButton, {'attr': {'class': 'w-full max-w-md'}}) }}
-                    {{ form_widget(editFormButton.edit, {'attr': {'class': 'mb-4 bg-indigo-500 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}, 'label': 'Modifier'}) }}
-                    {{ form_end(editFormButton) }}
 
                     <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
                         <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
