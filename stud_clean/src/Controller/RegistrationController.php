@@ -92,6 +92,12 @@ class RegistrationController extends AbstractController
                 $fileName = $fileUploader->upload($image);
                 $user->setImage($fileName);
             }
+
+            $student_proof = $form->get('student_proof')->getData();
+            if ($student_proof) {
+                $StudentProofFileName = $fileUploader->upload($student_proof);
+                $user->setStudentProof($StudentProofFileName);
+            }
             $user->setPhoneNumber($form->get('phoneNumber')->getData());
             $user->setRoles(["ROLE_CLEANER"]);
             $entityManager->persist($user);

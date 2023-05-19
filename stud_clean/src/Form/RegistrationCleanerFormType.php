@@ -33,8 +33,13 @@ class RegistrationCleanerFormType extends AbstractType
                 'mapped' => false,
                 'data_class' => null,
                 'attr' => ['accept' => 'image/*']
+            ])
+            ->add('studen_proof', FileType::class, [
+            'required' => true,
+            'mapped' => false,
+            'data_class' => null,
+            'attr' => ['accept' => 'image/*']
             ]);
-
         if ($isEditProfile) {
             $builder
                 ->add('currentPassword', PasswordType::class, [

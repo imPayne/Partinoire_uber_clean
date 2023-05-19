@@ -20,6 +20,12 @@ class Cleaner extends User
     #[ORM\Column(length: 15)]
     private ?string $PhoneNumber = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $student_proof = null;
+
+    #[ORM\Column]
+    private ?bool $checked = null;
+
     public function __construct()
     {
         $this->services = new ArrayCollection();
@@ -72,6 +78,30 @@ class Cleaner extends User
     public function setPhoneNumber(string $PhoneNumber): self
     {
         $this->PhoneNumber = $PhoneNumber;
+
+        return $this;
+    }
+
+    public function getStudentProof(): ?string
+    {
+        return $this->student_proof;
+    }
+
+    public function setStudentProof(string $student_proof): self
+    {
+        $this->student_proof = $student_proof;
+
+        return $this;
+    }
+
+    public function isChecked(): ?bool
+    {
+        return $this->checked;
+    }
+
+    public function setChecked(bool $checked): self
+    {
+        $this->checked = $checked;
 
         return $this;
     }

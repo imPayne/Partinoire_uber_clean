@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Cleaner.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cleaner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationCleanerFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationCleanerFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/registerCleaner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/registerCleaner.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +224,9 @@
       <workItem from="1684197838868" duration="113000" />
       <workItem from="1684240375587" duration="87000" />
       <workItem from="1684246745782" duration="15666000" />
-      <workItem from="1684343321512" duration="2448000" />
+      <workItem from="1684343321512" duration="2521000" />
+      <workItem from="1684424451033" duration="1000" />
+      <workItem from="1684539352242" duration="981000" />
     </task>
     <servers />
   </component>
