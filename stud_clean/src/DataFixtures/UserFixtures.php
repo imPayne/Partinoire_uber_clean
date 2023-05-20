@@ -37,6 +37,7 @@ class UserFixtures extends Fixture
 
         $user2 = new Cleaner();
         $user2->setRoles(['ROLE_CLEANER']);
+        $user2->setStudentProof('tumblr-o2wotyHcxt1t0l1jvo1-500-64417cedda35a.gif');
         $user2->setFirstName('Cleaner');
         $user2->setEmail('cleaner@gmail.com');
         $user2->setLastName('Néttoyeur');

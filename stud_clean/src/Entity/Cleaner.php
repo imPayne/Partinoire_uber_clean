@@ -29,6 +29,7 @@ class Cleaner extends User
     public function __construct()
     {
         $this->services = new ArrayCollection();
+        $this->setChecked(false);
     }
 
     /**

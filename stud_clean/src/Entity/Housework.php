@@ -39,6 +39,9 @@ class Housework
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $Hour = null;
 
+    #[ORM\Column]
+    private ?int $price = null;
+
     public function __construct()
     {
         $this->Participant = new ArrayCollection();
@@ -147,6 +150,18 @@ class Housework
     public function setHour(\DateTimeInterface $Hour): self
     {
         $this->Hour = $Hour;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
