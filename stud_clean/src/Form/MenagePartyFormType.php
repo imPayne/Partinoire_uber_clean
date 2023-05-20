@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -46,6 +47,11 @@ class MenagePartyFormType extends AbstractType
 
             ->add('hours', ChoiceType::class, [
                 'choices' => $choices,
+            ])
+            ->add('price', NumberType::class, [
+                'label' => 'Prix',
+                'required' => true,
+                'mapped' => false,
             ])
             ->add('listImage', FileType::class, [
                 'multiple' => false,

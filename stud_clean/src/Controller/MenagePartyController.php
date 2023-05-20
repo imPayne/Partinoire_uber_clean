@@ -143,6 +143,10 @@ class MenagePartyController extends AbstractController
                 $newHours = $editForm->get('hours')->getData();
                 $editHousework->setHour(new \DateTime($newHours));
             }
+
+            if ($editForm->get('price')->getData() !== $editHousework->getPrice()) {
+                $editHousework->setPrice($editForm->get('price')->getData());
+            }
             if ($editForm->get('listImage')->getData()) {
                 $image = $editForm->get('listImage')->getData();
                 $fileName = $fileUploader->upload($image);

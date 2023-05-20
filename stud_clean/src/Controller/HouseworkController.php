@@ -63,6 +63,7 @@ class HouseworkController extends AbstractController
                 $newHousework->setDateStart($date);
                 $newHours = $form->get('hours')->getData();
                 $newHousework->setHour(new \DateTime($newHours));
+                $newHousework->setPrice($form->get('price')->getData());
 
                 $serviceChoosen = $participantForm->get('service')->getData();
                 $newParticipant->setService($serviceChoosen);

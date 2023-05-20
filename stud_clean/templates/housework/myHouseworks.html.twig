@@ -28,6 +28,9 @@
                                 Heure: {{ housework.hour|date('h') }}H{{ housework.hour|date('i') }}
                             </time>
                         </p>
+
+                        <p class="text-left text-lg mb-4">Prix: {{ housework.price }}€</p>
+
                         <p class="text-left text-lg mb-4">Adresse: {{ app.user.adresse }}</p>
                         <p class="text-left text-lg mb-4">Code Postal: {{ app.user.codePostal }}</p>
                         <p class="text-left text-lg mb-4">Région: {{ app.user.region }}</p>
