@@ -31,8 +31,8 @@
                     <p class="text-lg mb-2">
                         Région: {{ housework.customer.region }}
                     </p>
-                    {% if listParticipantHousework[0].cleaner is not empty or housework.customer.id == app.user.id %}
-                        {% if listParticipantHousework[0].cleaner and  listParticipantHousework[0].cleaner.id == app.user.id %}
+                    {% if listParticipantHousework.cleaner is not empty or housework.customer.id == app.user.id %}
+                        {% if listParticipantHousework.cleaner and  listParticipantHousework.cleaner.id == app.user.id %}
                             <p class="mb-2 text-lg px-2 text-indigo-500">
                                 Vous êtes déjà inscrit à cette ménage party!
                             </p>
@@ -48,11 +48,25 @@
                             {{ form_end(unsubscribeForm) }}
 
                         {% elseif app.user.id == housework.customer.id %}
-                            <p class="mb-20 text-lg px-2 text-indigo-500">
+                            <p class="mb-6 text-lg px-2 text-indigo-500">
                                 Cette ménage party vous appartient!!
                             </p>
+                            {% if listParticipantHousework.cleaner is defined and listParticipantHousework.cleaner is not null %}
+                                <div class="flex mb-2 align-content-center items-center">
+                                        {% if  listParticipantHousework.cleaner.image is not null %}
+                                            <img class="rounded-full h-12 w-12 object-cover" src="{{ asset('uploads/' ~ listParticipantHousework.cleaner.image) }}" alt="{{ listParticipantHousework.cleaner.firstName }}">
+                                        {% else %}
+                                            <img class="rounded-full h-12 w-12 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ listParticipantHousework.cleaner.firstName }}">
+                                        {% endif %}
+                                    <p class="text-lg pl-4 pt-2">
+                                        {{ listParticipantHousework.cleaner.firstName }} {{ listParticipantHousework.cleaner.lastName|capitalize }}
+                                    </p>
+                                </div>
 
-                            {{ dump(housework.participant) }}
+                                <p class="mb-6 text-lg">
+                                    s'occupe de la ménage party.
+                                </p>
+                            {% endif %}
 
                             {# bouton de suppression de ménage party #}
                             {{ form_start(deleteForm) }}

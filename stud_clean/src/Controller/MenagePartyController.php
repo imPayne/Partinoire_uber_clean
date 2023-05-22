@@ -53,7 +53,10 @@ class MenagePartyController extends AbstractController
         $cleaner = $cleanerRepository->findOneBy(['email' => $user->getEmail()]);
         $customer = $customerRepository->findOneBy(['email' => $user->getEmail()]);
 
-        $newCleanerParticipant = $participantRepository->findBy(['housework' => $housework]);
+        $newCleanerParticipant = $participantRepository->findOneBy(['housework' => $housework]);
+        $getCleanerParticipant = $cleanerRepository->findBy(['id' => $newCleanerParticipant->getCleaner()]);
+
+
         $getHousework = $houseworkRepository->find($id);
 
         $deleteForm = $this->createForm(DeleteHouseworkFormType::class);
