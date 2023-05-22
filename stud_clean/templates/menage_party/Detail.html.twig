@@ -51,6 +51,9 @@
                             <p class="mb-20 text-lg px-2 text-indigo-500">
                                 Cette ménage party vous appartient!!
                             </p>
+
+                            {{ dump(housework.participant) }}
+
                             {# bouton de suppression de ménage party #}
                             {{ form_start(deleteForm) }}
                             {{ form_widget(deleteForm.delete, {'attr': {'class': 'mb-4 bg-red-400 hover:bg-red-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}, 'label': 'Supprimer'}) }}
@@ -67,9 +70,12 @@
                             </p>
                         {% endif %}
                     {% else %}
-                        {{ form_start(form) }}
-                        {{ form_widget(form.submit, {'attr': {'class': 'mb-10 mt-10 bg-indigo-400 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
-                        {{ form_end(form) }}
+                        {# affichage du bouton d'inscription seulement si l'utilisateur connecté est un cleaner (!= Customer) #}
+                        {% if app.user is defined and app.user is not null and app.user.note is defined %}
+                            {{ form_start(form) }}
+                            {{ form_widget(form.submit, {'attr': {'class': 'mb-10 mt-10 bg-indigo-400 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
+                            {{ form_end(form) }}
+                        {% endif %}
                     {% endif %}
 
                     <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">

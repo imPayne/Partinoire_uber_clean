@@ -23,7 +23,7 @@
                                         Date: {{ housework.dateStart|date('d/m/Y') }} {{ housework.hour|date('H:i') }}
                                     </time>
                                 </p>
-                            <p class="text-left text-lg mb-4">Prix: {{ housework.price }}€</p>
+                            <p class="text-left font-bold text-lg my-4">Prix: {{ housework.price }} €</p>
 
                             <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
                                 <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
