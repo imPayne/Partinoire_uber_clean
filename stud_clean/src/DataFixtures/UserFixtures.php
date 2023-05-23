@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Cleaner;
 use App\Entity\Customer;
+use App\Entity\Housework;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -29,10 +30,24 @@ class UserFixtures extends Fixture
         $user->setRegion("Bretagne");
         $user->setLastName("Administrator");
         $user->setRoles(['ROLE_CUSTOMER']);
-        $user->setImage("admin-6439f330cc79a.png");
+        $user->setImage("gabimaru-anime-646aa6dcccd16.gif");
         $user->setPhoneNumber("0772378558");
         $password = $this->hasher->hashPassword($user, 'admin');
         $user->setPassword($password);
+
+        $newHousework = new Housework();
+        $newHousework->setPrice(40);
+        $newHousework->setTitle("nettoyage appartement");
+        $newHousework->setDescription("Bonjour, j'ai besoin de quelqu'un pour venir réaliser le ménage dans mon appartement de 80m²");
+        $newHousework->setListImage("appart80.jpg");
+        $dateString = '2023-06-20';
+        $dateStart = \DateTime::createFromFormat('Y-m-d', $dateString);
+        $newHousework->setDateStart($dateStart);
+        $hour = new \DateTime('17:00');
+        $newHousework->setHour($hour);
+        $user->addHousework($newHousework);
+        $newHousework->setCustomer($user);
+        $manager->persist($newHousework);
         $manager->persist($user);
 
         $user2 = new Cleaner();
@@ -41,7 +56,7 @@ class UserFixtures extends Fixture
         $user2->setFirstName('Cleaner');
         $user2->setEmail('cleaner@gmail.com');
         $user2->setLastName('Néttoyeur');
-        $user2->setImage("tumblr-o2wotyHcxt1t0l1jvo1-500-64417cedda35a.gif");
+        $user2->setImage("reapermedal.png");
         $user2->setPhoneNumber("0747247418");
         $user2->setNote(4.9);
         $password2 = $this->hasher->hashPassword($user2, 'cleaner');
