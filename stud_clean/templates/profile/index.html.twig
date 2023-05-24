@@ -7,64 +7,63 @@
         {{ include('_navbar.html.twig') }}
     {% endblock navbar %}
 
-<div class="flex justify-center items-center">
-    <div class="mt-10 p-6 grid grid-cols-2 gap-4">
-        {% set check = "false" %}
-        {% for role in app.user.roles %}
-            {% if 'ROLE_CUSTOMER' in role and check == "false" %}
-                {% set check = "true" %}
-                <div class="flex flex-col w-96 h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
-                    {% if app.user.image %}
-                        <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
-                    {% else %}
-                        <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
-                    {% endif %}
-                    <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
-                    <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
-                    {% if not isCleaner %}
-                        <p class="text-md mb-2">Adresse: {{ userType.adresse }}</p>
-                        <p class="text-md mb-2">Région: {{ userType.region }}</p>
-                        <p class="text-md mb-2">Code Postal: {{ userType.codePostal }}</p>
-                        <p class="text-md mb-2">N° de téléphone: {{ userType.phoneNumber }}</p>
-                    {% else %}
-                        <p class="text-lg mb-2">Services: {{ userType.services }}</p>
-                    {% endif %}
-                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
-                </div>
-                <div class="flex flex-col w-96 h-96 m-10 p-10 items-center bg-gray-200 rounded-lg">
-                    {# ajouter la liste des Match party du user connecté #}
-                    <img class="rounded-md mb-6 h-44 w-auto object-cover" src="{{ asset('images/menage_party.jpg') }}" alt="empty-service-image">
-                    <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="/housework">Créer votre Ménage Party</a>
-                    <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="{{ path('app_show_houseworks') }}">Mes Ménages Party</a>
-                </div>
-            {% elseif 'ROLE_CLEANER' in app.user.roles and check == "false" %}
-                {% set check = "true" %}
-                <div class="flex flex-col w-96 h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
-                    {% if app.user.image %}
-                        <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
-                    {% else %}
-                        <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
-                    {% endif %}
-                    <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
-                    <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
-                    <p class="text-md mb-4">Prénom: {{ app.user.firstName }}</p>
-                    <p class="text-md mb-4">Nom: {{ app.user.lastName }}</p>
-                    <p class="text-md mb-4">N° de Téléphone: {{ app.user.phoneNumber }}</p>
-                    {% if app.user.note is not defined or app.user.note == 0 %}
-                        <p class="text-lg mb-4"> Pas encore de note...⭐</p>
-                    {% else %}
-                        <p class="text-lg mb-4"> {{ app.user.note }}⭐</p>
-                    {% endif %}
-                    
-                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
-                </div>
-                <div class="flex flex-col w-auto h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
-                    <img class="rounded-md mb-6 h-56 w-auto object-cover" src="{{ asset('images/proposez_vos_services.jpg') }}" alt="{{ app.user.firstName }}">
-                    <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/upcoming_performances">Prochaines prestations</a>
-                </div>
+    <div class="flex justify-center items-center">
+        <div class="mt-10 p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {% set check = "false" %}
+            {% for role in app.user.roles %}
+                {% if 'ROLE_CUSTOMER' in role and check == "false" %}
+                    {% set check = "true" %}
+                    <div class="flex flex-col w-full sm:w-96 h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
+                        {% if app.user.image %}
+                            <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
+                        {% else %}
+                            <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
+                        {% endif %}
+                        <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+                        <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
+                        {% if not isCleaner %}
+                            <p class="text-md mb-2">Adresse: {{ userType.adresse }}</p>
+                            <p class="text-md mb-2">Région: {{ userType.region }}</p>
+                            <p class="text-md mb-2">Code Postal: {{ userType.codePostal }}</p>
+                            <p class="text-md mb-2">N° de téléphone: {{ userType.phoneNumber }}</p>
+                        {% else %}
+                            <p class="text-lg mb-2">Services: {{ userType.services }}</p>
+                        {% endif %}
+                        <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
+                    </div>
+                    <div class="flex flex-col w-full sm:w-96 h-auto m-10 p-10 items-center bg-gray-200 rounded-lg">
+                        {# ajouter la liste des Match party du user connecté #}
+                        <img class="rounded-md mb-6 h-44 w-auto object-cover" src="{{ asset('images/menage_party.jpg') }}" alt="empty-service-image">
+                        <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="/housework">Créer votre Ménage Party</a>
+                        <a class="mb-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo" href="{{ path('app_show_houseworks') }}">Mes Ménages Party</a>
+                    </div>
+                {% elseif 'ROLE_CLEANER' in app.user.roles and check == "false" %}
+                    {% set check = "true" %}
+                    <div class="flex flex-col w-full sm:w-96 h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
+                        {% if app.user.image %}
+                            <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
+                        {% else %}
+                            <img class="rounded-md mb-6 h-44 w-44 object-cover" src="{{ asset('images/default.jpg') }}" alt="{{ app.user.firstName }}">
+                        {% endif %}
+                        <h2 class="text-lg font-bold mb-4">Profil de {{ app.user.firstName }} {{ app.user.lastName|capitalize }}</h2>
+                        <p class="text-md mb-4">Email: {{ app.user.userIdentifier }}</p>
+                        <p class="text-md mb-4">Prénom: {{ app.user.firstName }}</p>
+                        <p class="text-md mb-4">Nom: {{ app.user.lastName }}</p>
+                        <p class="text-md mb-4">N° de Téléphone: {{ app.user.phoneNumber }}</p>
+                        {% if app.user.note is not defined or app.user.note == 0 %}
+                            <p class="text-lg mb-4"> Pas encore de note...⭐</p>
+                        {% else %}
+                            <p class="text-lg mb-4"> {{ app.user.note }}⭐</p>
+                        {% endif %}
 
-            {% endif %}
-        {% endfor %}
+                        <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/edit">Modifier votre profil</a>
+                    </div>
+                    <div class="flex flex-col w-full sm:w-auto h-auto m-10 p-6 items-center justify-center bg-gray-200 rounded-lg">
+                        <img class="rounded-md mb-6 h-56 w-auto object-cover" src="{{ asset('images/proposez_vos_services.jpg') }}" alt="{{ app.user.firstName }}">
+                        <a class="mb-4 mt-10 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="/profile/upcoming_performances">Prochaines prestations</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}

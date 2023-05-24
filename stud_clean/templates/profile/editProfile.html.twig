@@ -56,6 +56,10 @@
                 {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Nouveau mot de passe'}) }}                {{ form_label(registrationForm.image, 'Importer une image', {'label_attr': {'class': 'block text-gray-700 mb-2'}}) }}
                 {{ form_widget(registrationForm.image, {'attr': {'class': 'border rounded py-2 px-3 w-full mb-4'}}) }}
                 {{ form_errors(registrationForm.image) }}
+
+                {{ form_label(registrationForm.student_proof, 'Photo de carte étudiant.', {'label_attr': {'class': 'block text-gray-700 mb-2'}}) }}
+                {{ form_widget(registrationForm.student_proof, {'attr': {'class': 'border rounded py-2 px-3 w-full mb-4'}}) }}
+                {{ form_errors(registrationForm.student_proof) }}
                 <div class="flex items-center justify-center flex-col">
                     <button type="submit" class="my-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">Modifier</button>
                 </div>
@@ -63,7 +67,5 @@
             </div>
         </div>
     {% endif %}
-
-
 
 {% endblock %}

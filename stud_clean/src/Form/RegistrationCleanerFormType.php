@@ -34,7 +34,7 @@ class RegistrationCleanerFormType extends AbstractType
                 'data_class' => null,
                 'attr' => ['accept' => 'image/*']
             ])
-            ->add('studen_proof', FileType::class, [
+            ->add('student_proof', FileType::class, [
             'required' => true,
             'mapped' => false,
             'data_class' => null,

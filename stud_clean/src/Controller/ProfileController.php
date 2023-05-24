@@ -135,6 +135,11 @@ class ProfileController extends AbstractController
                         $fileName = $fileUploader->upload($image);
                         $cleaner->setImage($fileName);
                     }
+                    $student_proof = $form->get('student_proof')->getData();
+                    if ($student_proof) {
+                        $StudentProofFileName = $fileUploader->upload($student_proof);
+                        $user->setStudentProof($StudentProofFileName);
+                    }
                     $entityManager->persist($cleaner);
                 }
             }
