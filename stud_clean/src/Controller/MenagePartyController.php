@@ -54,7 +54,9 @@ class MenagePartyController extends AbstractController
         $customer = $customerRepository->findOneBy(['email' => $user->getEmail()]);
 
         $newCleanerParticipant = $participantRepository->findOneBy(['housework' => $housework]);
-        $getCleanerParticipant = $cleanerRepository->findBy(['id' => $newCleanerParticipant->getCleaner()]);
+        if ($newCleanerParticipant && $newCleanerParticipant->getCleaner()) {
+            $getCleanerParticipant = $cleanerRepository->findBy(['id' => $newCleanerParticipant->getCleaner()]);
+        }
 
 
         $getHousework = $houseworkRepository->find($id);

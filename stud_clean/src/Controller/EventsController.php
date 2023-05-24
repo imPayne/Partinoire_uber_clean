@@ -44,7 +44,7 @@ class EventsController extends AbstractController
 
             $service->setName($form->get('name')->getData());
 
-            $image = $form->get('image')->getData();
+            $image = $form->get('icon')->getData();
             if ($image) {
                 $fileName = $fileUploader->upload($image);
                 $service->setIcon($fileName);

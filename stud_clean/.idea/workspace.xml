@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ServiceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ServiceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/createEvent.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/createEvent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/registerCleaner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/registerCleaner.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,17 +168,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hmonc/OneDrive/Bureau/Dev/Stud_clean/stud_clean",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hmonc/OneDrive/Bureau/Dev/Stud_clean/stud_clean&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hmonc\OneDrive\Bureau\Dev\Stud_clean\stud_clean\src" />
@@ -231,7 +239,8 @@
       <workItem from="1684777538884" duration="23000" />
       <workItem from="1684804757270" duration="399000" />
       <workItem from="1684848634417" duration="2077000" />
-      <workItem from="1684887936892" duration="2621000" />
+      <workItem from="1684887936892" duration="2677000" />
+      <workItem from="1684943947598" duration="4080000" />
     </task>
     <servers />
   </component>

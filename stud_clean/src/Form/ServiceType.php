@@ -16,6 +16,7 @@ class ServiceType extends AbstractType
             ->add('name')
             ->add('icon', FileType::class, [
                 'data_class' => null,
+                'mapped' => false,
                 'attr' => ['accept' => 'image/*']
             ])
         ;
