@@ -1,70 +1,67 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}Ménages Party{% endblock %}
+{% block title %}Ménages Party{% endblock %}
 
-    {% block body %}
-        {% block navbar %}
-            {{ include('_navbar.html.twig') }}
-        {% endblock navbar %}
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
 
-        <div class="flex items-center justify-center">
-            {% if houseworks is not empty %}
-                <div class="mt-10 p-6 grid grid-cols-4">
-                    {% for housework in houseworks %}
-                        <div class="relative flex flex-col p-6 m-4 h-auto w-auto items-center bg-gray-200 rounded-md">
-                                {% if housework.listImage is defined %}
-                                    <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
-                                {% endif %}
+    <div class="flex items-center justify-center">
+        {% if houseworks is not empty %}
+            <div class="mt-10 p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {% for housework in houseworks %}
+                    <div class="relative flex flex-col p-6 h-auto w-auto items-center bg-gray-200 rounded-md">
+                        {% if housework.listImage is defined %}
+                            <img class="rounded-md mb-6 h-48 w-96 object-cover" src="{{ asset('uploads/' ~ housework.listImage) }}" alt="image">
+                        {% endif %}
 
-                                <h1 class="text-xl font-bold mb-4">{{ housework.title }}</h1>
-                                <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
-                                <p class="text-left text-lg mb-4">
-                                    <time datetime="{{ housework.dateStart|date('Y-m-d') }}">
-                                        Date: {{ housework.dateStart|date('d/m/Y') }} {{ housework.hour|date('H:i') }}
-                                    </time>
-                                </p>
-                            <p class="text-left font-bold text-lg my-4">Prix: {{ housework.price }} €</p>
+                        <h1 class="text-xl font-bold mb-4">{{ housework.title }}</h1>
+                        <p class="text-lg mb-4 px-2">{{ housework.description }}</p>
+                        <p class="text-left text-lg mb-4">
+                            <time datetime="{{ housework.dateStart|date('Y-m-d') }}">
+                                Date: {{ housework.dateStart|date('d/m/Y') }} {{ housework.hour|date('H:i') }}
+                            </time>
+                        </p>
+                        <p class="text-left font-bold text-lg my-4">Prix: {{ housework.price }} €</p>
 
-                            <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
-                                <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
-                                    <p class="h-auto w-auto text-white shadow-outline-indigo rounded-lg m-2 bg-indigo-600 text-lg mb-4 px-2">Service</p>
-                                </button>
+                        <div class="absolute left-[5%] top-[5%] grid grid-cols-2 mr-32">
+                            <button id="dropdownServiceButton" data-dropdown-toggle="dropdown{{ housework.id }}" type="button">
+                                <p class="h-auto w-auto text-white shadow-outline-indigo rounded-lg m-2 bg-indigo-600 text-lg mb-4 px-2">Service</p>
+                            </button>
 
-                                <div id="dropdown{{ housework.id }}" class="hidden bg-white rounded-lg w-auto">
-                                    <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
-                                        {% if housework is not null and housework.participant is not null %}
-                                            {% for participant in housework.participant %}
-                                                <li class="py-2 text-left text-md font-medium hover:text-blue-600">
-                                                    <p>
-                                                        {% if participant.service is not null and participant.service.name is not null %}
-                                                            {{ participant.service.name }}
-                                                        {% endif %}
-                                                    </p>
-                                                </li>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </ul>
-                                </div>
+                            <div id="dropdown{{ housework.id }}" class="hidden bg-white rounded-lg w-auto">
+                                <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm" aria-labelledby="dropdownDefaultButton">
+                                    {% if housework is not null and housework.participant is not null %}
+                                        {% for participant in housework.participant %}
+                                            <li class="py-2 text-left text-md font-medium hover:text-blue-600">
+                                                <p>
+                                                    {% if participant.service is not null and participant.service.name is not null %}
+                                                        {{ participant.service.name }}
+                                                    {% endif %}
+                                                </p>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
                             </div>
-                            <div class="absolute right-[5%] bottom-[5%] flex flex-col items-center sm:flex-row">
-                                <p class="text-lg px-2">
-                                    {{ housework.customer.firstName }} {{ housework.customer.lastName|first }}
-                                </p>
-                                <div class="ml-2 h-12 w-12 rounded-full overflow-hidden">
-                                    <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
-                                </div>
-                            </div>
-                            <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.id}) }}">Détail</a>
                         </div>
-                    {% endfor %}
-
-                </div>
-            {% else %}
-                    <div class="p-6 m-4 mt-32 flex h-96 w-full items-center justify-center">
-                        <h1 class="text-2xl mb-4 px-2">Aucune Ménages Party à afficher pour l'instant...☹</h1>
+                        <div class="absolute right-[5%] bottom-[5%] flex flex-col items-center sm:flex-row">
+                            <p class="text-lg px-2">
+                                {{ housework.customer.firstName }} {{ housework.customer.lastName|first }}
+                            </p>
+                            <div class="ml-2 h-12 w-12 rounded-full overflow-hidden">
+                                <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ housework.customer.image) }}" alt="{{ housework.customer.firstName }}">
+                            </div>
+                        </div>
+                        <a class="mb-2 text-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline-indigo block mx-auto" href="{{ path('app_register_cleaner_to_housework', {'id': housework.id}) }}">Détail</a>
                     </div>
-            {% endif %}
-        </div>
-    {% endblock %}
-
-
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="p-6 m-4 mt-32 flex h-96 w-full items-center justify-center">
+                <h1 class="text-2xl mb-4 px-2">Aucune Ménages Party à afficher pour l'instant...☹</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
