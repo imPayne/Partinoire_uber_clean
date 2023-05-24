@@ -159,13 +159,14 @@ class MenagePartyController extends AbstractController
             }
             if ($participantForm->get('service')->getData()) {
                 // Modifier les données de l'entité Participant si un service a été choisi dans le formulaire
-                $newParticipant = $participantRepository->findOneBy(['housework' => $editHousework]);
-                if ($newParticipant) {
-                    $newParticipant->setService($participantForm->get('service')->getData());
-                    $newParticipant->setHousework($editHousework);
-                    $entityManager->persist($newParticipant);
-                }
+                $newParticipant = new Participant();
+                $newParticipant->setService($participantForm->get('service')->getData());
+                $newParticipant->setHousework($editHousework);
+                $editHousework->addParticipant($newParticipant);
+                $entityManager->persist($newParticipant);
             }
+            $entityManager->persist($editHousework);
+            $entityManager->persist($customer);
             $entityManager->flush();
             return $this->redirectToRoute('app_menage_party', ['id' => $housework->getId()]);
         }

@@ -32,7 +32,7 @@
                         Région: {{ housework.customer.region }}
                     </p>
                     {% if listParticipantHousework is not null and listParticipantHousework is defined and listParticipantHousework.cleaner is not empty or housework.customer.id == app.user.id %}
-                        {% if listParticipantHousework.cleaner and  listParticipantHousework.cleaner.id == app.user.id %}
+                        {% if listParticipantHousework.cleaner is defined and listParticipantHousework is not null and listParticipantHousework.cleaner and  listParticipantHousework.cleaner.id == app.user.id %}
                             <p class="mb-2 text-lg px-2 text-indigo-500">
                                 Vous êtes déjà inscrit à cette ménage party!
                             </p>
