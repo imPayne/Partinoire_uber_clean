@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte à vérifier{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+    <div class="m-10 flex justify-center justify-center">
+        <div class="flex items-center align-content-center justify-center bg-gray-200 rounded-lg w-[calc(30%)] h-auto">
+            <div class="flex flex-col justify-center items-center p-4">
+                <img class="rounded-full h-24 w-24 object-cover m-4" src="{{ asset('uploads/' ~ cleaner.image) }}" alt="{{ cleaner.firstName }}">
+                <h2 class="text-lg font-bold">{{ cleaner.firstName }} {{ cleaner.lastName|capitalize }}</h2>
+                <p class="text-lg">Email: {{ cleaner.email }}</p>
+                <p class="text-lg">N° de téléphone: {{ cleaner.phoneNumber }}</p>
+
+                <img class="h-auto w-auto object-cover m-4 p-4" src="{{ asset('uploads/' ~ cleaner.studentProof) }}" alt="{{ cleaner.firstName }}">
+
+                {{ form_start(button_verified) }}
+                {{ form_widget(button_verified.submit, {'attr': {'class': 'my-6 p-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded  focus:shadow-outline-indigo'}}) }}
+                {{ form_end(button_verified) }}
+
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

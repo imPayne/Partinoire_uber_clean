@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {{ include('_navbar.html.twig') }}
+    {% endblock navbar %}
+
+    <div class="mt-10 p-6 grid grid-cols-1 gap-4 bg-white h-auto">
+        {% for key, value in getAllCleanerDatas %}
+        <div class="flex items-center align-content-center bg-gray-200 rounded-lg w-auto h-48 pl-10">
+            <img class="rounded-full h-24 w-24 object-cover m-4" src="{{ asset('uploads/' ~ value.image) }}" alt="{{ value.firstName }}">
+                    <div class="flex flex-col p-4">
+                        <h2 class="text-lg font-bold">{{ value.firstName }} {{ value.lastName|capitalize }}</h2>
+                        <p class="text-lg">Email: {{ value.email }}</p>
+                        <p class="text-lg">N° de téléphone: {{ value.phoneNumber }}</p>
+                    </div>
+
+                    <div class="flex flex-col p-4">
+                        <p class="text-lg">État du compte:
+                            {% if not value.checked %}
+                                <span class="font-bold text-red-600">Compte non vérifié.</span>
+                            {% else %}
+                                <span class="font-bold text-green-600">Compte vérifié.</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                    {% if not value.checked %}
+                        <a class="mb-4 mt-10 text-center bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo block mx-auto" href="{{ path('app_admin_verified', {'id': value.id}) }}">Compte à vérifié</a>
+                    {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
