@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenagePartyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +232,8 @@
       <workItem from="1684804757270" duration="399000" />
       <workItem from="1684848634417" duration="2077000" />
       <workItem from="1684887936892" duration="2677000" />
-      <workItem from="1684943947598" duration="5557000" />
+      <workItem from="1684943947598" duration="6883000" />
+      <workItem from="1684975574224" duration="2658000" />
     </task>
     <servers />
   </component>
