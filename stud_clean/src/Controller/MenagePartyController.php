@@ -73,22 +73,18 @@ class MenagePartyController extends AbstractController
         if ($cleaner) {
             if ($form->isSubmitted() && $form->isValid()) {
                 if ($form->get('submit')->isClicked()) {
-                    foreach ($newCleanerParticipant as $participant) {
-                        $participant->setCleaner($cleaner);
-                        $housework->addParticipant($participant);
-                        $entityManager->persist($participant);
-                        $entityManager->flush();
-                    }
+                    $newCleanerParticipant->setCleaner($cleaner);
+                    $housework->addParticipant($newCleanerParticipant);
+                    $entityManager->persist($newCleanerParticipant);
+                    $entityManager->flush();
                     return $this->redirectToRoute('app_register_cleaner_to_housework', ['id' => $housework->getId()]);
                 }
             }
             if ($unsubscribeForm->isSubmitted() && $unsubscribeForm->isValid()) {
                 if ($unsubscribeForm->get('submit')->isClicked()) {
-                    foreach ($newCleanerParticipant as $participant) {
-                        $participant->setCleaner(null);
-                        $entityManager->persist($participant);
-                        $entityManager->flush();
-                    }
+                    $newCleanerParticipant->setCleaner(null);
+                    $entityManager->persist($newCleanerParticipant);
+                    $entityManager->flush();
 
                     return $this->redirectToRoute('app_upcoming_performances');
                 }

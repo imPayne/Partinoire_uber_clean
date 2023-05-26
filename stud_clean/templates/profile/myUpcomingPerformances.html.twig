@@ -11,7 +11,7 @@
     <div class="flex flex-col items-center justify-center">
         <h1 class="mt-20 text-2xl font-bold mb-4">Vos Prochaines prestations</h1>
         {% if cleaner.checked == false %}
-            <p class="my-36 text-lg font-semibold px-2 text-red-500">Votre compte doit être vérifié pour avoir accès à des Menages party !!</p>
+            <p class="my-36 text-2xl font-semibold px-2 text-red-500">Votre compte doit être vérifié pour avoir accès à des Menages party !!</p>
         {% endif %}
         <div class="mt-10 mb-20 p-6 grid grid-cols-2">
 
@@ -39,6 +39,15 @@
                         </div>
 
                 {% endfor %}
+                {% else %}
+                    <div class="m-4 w-auto h-[110vh] flex flex-col items-center">
+                        <h2 class="text-xl">Vous vous êtes encore inscrit à aucune ménage party...</h2>
+                    </div>
+                    <div class="m-4 w-auto h-[110vh] flex justify-center">
+                        <div>
+                            <a class="text-lg text-indigo-500 sm:text-xl md:text-xl underline" href="{{ path('app_menage_party') }}">Vous pouvez vous inscrire à une ménage party ici.</a>
+                        </div>
+                    </div>
             {% endif %}
         </div>
     </div>
