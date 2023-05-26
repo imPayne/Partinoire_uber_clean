@@ -11,6 +11,18 @@
                 <li class="text-lg sm:text-xl md:text-2xl font-bold mr-10">
                     <a href="{{ path('app_events') }}">Services</a>
                 </li>
+                {% for role in app.user.roles %}
+                    {% if "ROLE_ADMIN" in role %}
+                        <li class="text-lg sm:text-xl md:text-2xl font-bold mr-10">
+                            <a href="{{ path('app_admin') }}">Vérification de compte</a>
+                        </li>
+                        <li class="text-lg sm:text-xl md:text-2xl font-bold mr-10">
+                            <a href="{{ path('app_create_event') }}">Créer un service</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+
                 {% if app.user is defined and app.user is not null %}
                     <li class="mr-6 h-12 w-12 rounded-full overflow-hidden">
                         <button id="dropdownProfileButton" data-dropdown-toggle="dropdown" type="button">
@@ -41,6 +53,13 @@
                                         <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
                                             <a href="{{ path('app_upcoming_performances') }}">Prochaines prestations</a>
                                         </li>
+                                        {% elseif "ROLE_ADMIN" in role %}
+                                            <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                                <a href="{{ path('app_admin') }}">Vérification de compte</a>
+                                            </li>
+                                            <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                                <a href="{{ path('app_create_event') }}">Créer un service</a>
+                                            </li>
                                     {% endif %}
                                 {% endfor %}
                                 <li class="py-2 text-left text-lg font-medium text-red-400 hover:text-red-800">
