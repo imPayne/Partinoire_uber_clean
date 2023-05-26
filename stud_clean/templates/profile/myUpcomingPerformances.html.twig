@@ -10,7 +10,11 @@
 
     <div class="flex flex-col items-center justify-center">
         <h1 class="mt-20 text-2xl font-bold mb-4">Vos Prochaines prestations</h1>
+        {% if cleaner.checked == false %}
+            <p class="my-36 text-lg font-semibold px-2 text-red-500">Votre compte doit être vérifié pour avoir accès à des Menages party !!</p>
+        {% endif %}
         <div class="mt-10 mb-20 p-6 grid grid-cols-2">
+
             {% if cleaner and myUpcomingPerformances %}
                 {% for housework in myUpcomingPerformances %}
                         <div class="flex flex-col p-6 m-4 h-auto w-auto bg-gray-200 rounded-md">

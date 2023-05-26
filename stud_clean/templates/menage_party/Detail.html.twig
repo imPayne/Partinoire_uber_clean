@@ -85,10 +85,14 @@
                         {% endif %}
                     {% else %}
                         {# affichage du bouton d'inscription seulement si l'utilisateur connecté est un cleaner (!= Customer) #}
-                        {% if app.user is defined and app.user is not null and app.user.note is defined %}
+                        {% if app.user is defined and app.user is not null and app.user.checked is defined and app.user.checked == true  %}
                             {{ form_start(form) }}
                             {{ form_widget(form.submit, {'attr': {'class': 'mb-10 mt-10 bg-indigo-400 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo'}}) }}
                             {{ form_end(form) }}
+
+                            {% else %}
+                                <p class="mt-10 mb-20 text-lg font-semibold px-2 text-red-500">Votre doit être vérifié pour vous inscrire !</p>
+
                         {% endif %}
                     {% endif %}
 
