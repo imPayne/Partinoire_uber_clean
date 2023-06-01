@@ -158,6 +158,10 @@ class MenagePartyController extends AbstractController
                 $newParticipant = new Participant();
                 $newParticipant->setService($participantForm->get('service')->getData());
                 $newParticipant->setHousework($editHousework);
+                $getExistantServices = $participantRepository->findBy(["housework" => $editHousework]);
+                foreach ($getExistantServices as $service) {
+                    $editHousework->removeParticipant($service);
+                }
                 $editHousework->addParticipant($newParticipant);
                 $entityManager->persist($newParticipant);
             }
