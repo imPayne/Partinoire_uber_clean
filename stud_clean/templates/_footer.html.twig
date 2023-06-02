@@ -1,5 +1,5 @@
 {% block footer %}
-    <footer class="h-auto w-full flex flex-col justify-center bg-gray-200">
+    <footer class="h-auto w-full flex flex-col justify-center bg-white">
 
         <div class="flex flex-row items-center justify-between m-14 p-14">
             <div class="h-36 w-36">
@@ -9,18 +9,21 @@
             </div>
             <ul class="w-262 h-auto flex flex-col items-center">
                 <li class="text-lg font-bold mb-4">
-                    <h1 class="text-4xl font-bold mr-6">Stud Clean</h1>
+                    <h1 class="font-nunito text-4xl font-bold mr-6">Stud Clean</h1>
                 </li>
                 <li class="flex items-center text-lg font-bold mb-4">
                     {% if is_granted("ROLE_CUSTOMER") %}
-                        <a class="mx-4" href="{{ path('app_show_houseworks') }}">Mes Menages Party</a>
+                        <a class="font-nunito mx-4" href="{{ path('app_show_houseworks') }}">Mes Ménages Party</a>
                     {% endif %}
-                    <a class="mx-4" href="{{ path('app_menage_party') }}">Menages Party</a>
-                    <a class="mx-4" href="{{ path('app_events') }}">Les Services</a>
+                    <a class="font-nunito mx-4" href="{{ path('app_menage_party') }}">Ménages Party</a>
+                    <a class="font-nunito mx-4" href="{{ path('app_events') }}">Les Services</a>
 
                 </li>
-                <li class="text-lg font-bold">
+                <li class="font-nunito text-lg font-bold">
                     <a href="{{ path('contact') }}">Contactez-nous</a>
+                </li>
+                <li class="font-nunito text-lg font-bold">
+                    <p>contact@stud_clean.fr</p>
                 </li>
             </ul>
             <p class="mt-4 mb-2 text-lg font-bold">© {{ "now"|date("Y") }} Stud Clean</p>

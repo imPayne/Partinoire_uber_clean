@@ -12,15 +12,15 @@
         <div class="mt-16 flex flex-wrap justify-center items-stretch">
             <div class="w-full md:w-1/3 lg:w-1/4 p-4">
                 <img src="./{{ asset('images/notimetoclean.jpeg') }}" class="w-full h-auto" alt="No Time to Clean">
-                <h1 class="font-bold text-xl p-2">Pas le temps de faire le ménage chez vous ?</h1>
+                <h1 class="font-sans font-bold text-xl p-2">Pas le temps de faire le ménage chez vous ?</h1>
             </div>
             <div class="w-full md:w-1/3 lg:w-1/4 p-4">
                 <img src="./{{ asset('images/travaux-du-ménage-ennuyeux.jpg') }}" class="w-full h-auto" alt="Travaux du ménage ennuyeux">
-                <h1 class="font-bold text-xl p-2">Vous préférez profiter de votre famille plutôt que de faire les tâches ménagères ?</h1>
+                <h1 class="font-sans font-bold text-xl p-2">Vous préférez profiter de votre famille plutôt que de faire les tâches ménagères ?</h1>
             </div>
             <div class="w-full md:w-1/3 lg:w-1/4 p-4">
                 <img src="./{{ asset('images/flemme_de_faire_le_menage.jpg') }}" class="w-full h-auto" alt="Flemme de faire le ménage">
-                <h1 class="font-bold text-xl p-2">Vous n'avez pas envie de faire le ménage ?</h1>
+                <h1 class="font-sans font-bold text-xl p-2">Vous n'avez pas envie de faire le ménage ?</h1>
             </div>
         </div>
     </section>
@@ -28,8 +28,8 @@
 
     <section class="mt-20 mb-40">
         <div class="flex flex-col items-center">
-            <h1 class="mt-10 text-left font-bold text-xl p-2">Commencez par créer votre Ménage Party !</h1>
-            <p class="mt-2 text-left text-lg mb-4 px-2 mx-44">Pour
+            <h1 class="font-sans mt-10 text-left font-bold text-xl p-2">Commencez par créer votre Ménage Party !</h1>
+            <p class="font-sans mt-2 text-left text-lg mb-4 px-2 mx-44">Pour
                 {% if app.user %}
                     {% for role in app.user.roles %}
                         {% if 'ROLE_CUSTOMER' in role %}
@@ -45,8 +45,8 @@
                 , vous avez juste à renseigner un titre, une description et ajouter la date et l'heure. Plus besoin de vous préoccuper du ménage ou encore de la vaisselle en rentrant du travail !
             </p>
 
-            <h1 class="mt-20 md:mt-44 text-left font-bold text-xl p-2 mx-44">Vous voulez proposer vos services ? C'est très simple !</h1>
-            <p class="my-2 text-left text-lg mb-4 px-2 mx-44">Vous avez juste à créer un compte Cleaner et aller dans la rubrique des Ménages Party proposés par les différents utilisateurs du site.</p>
+            <h1 class="font-sans mt-20 md:mt-44 text-left font-bold text-xl p-2 mx-44">Vous voulez proposer vos services ? C'est très simple !</h1>
+            <p class="font-sans my-2 text-left text-lg mb-4 px-2 mx-44">Vous avez juste à créer un compte Cleaner et aller dans la rubrique des Ménages Party proposés par les différents utilisateurs du site.</p>
             <img class="mt-10" src="./{{ asset('images/proposez_vos_services.jpg') }}" alt="Proposez vos services">
 
         </div>

@@ -1,23 +1,23 @@
 {% block navbar %}
     <section>
-        <div class="h-24 sm:h-36 md:h-28 w-full flex items-center justify-between bg-gray-200">
+        <div class="h-24 sm:h-36 md:h-28 w-full flex items-center justify-between bg-white">
             <a href="/">
                 <img class="ml-10 h-20 p-4" src="{{ asset('images/logo_stud_clean.png')}}" alt="logo">
             </a>
             <ul class="w-262 h-50 flex items-center inline-block mr-20">
-                <li class="text-lg sm:text-xl md:text-xl font-bold mr-10">
+                <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-10">
                     <a href="{{ path('app_menage_party') }}">Ménages Party</a>
                 </li>
-                <li class="text-lg sm:text-xl md:text-xl font-bold mr-10">
+                <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-10">
                     <a href="{{ path('app_events') }}">Services</a>
                 </li>
                 {% if app.user is defined and app.user is not null %}
                     {% for role in app.user.roles %}
                         {% if "ROLE_ADMIN" in role %}
-                            <li class="text-lg sm:text-xl md:text-xl font-bold mr-10">
+                            <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-10">
                                 <a href="{{ path('app_admin') }}">Vérification de compte</a>
                             </li>
-                            <li class="text-lg sm:text-xl md:text-xl font-bold mr-10">
+                            <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-10">
                                 <a href="{{ path('app_create_event') }}">Créer un service</a>
                             </li>
                         {% endif %}
@@ -26,7 +26,7 @@
 
 
                 {% if app.user is defined and app.user is not null %}
-                    <li class="mr-6 h-12 w-12 rounded-full overflow-hidden">
+                    <li class="font-serif mr-6 h-12 w-12 rounded-full overflow-hidden">
                         <button id="dropdownProfileButton" data-dropdown-toggle="dropdown" type="button">
                             {% if app.user.image is not null %}
                                 <img class="rounded-md mb-2 h-12 w-12 object-cover" src="{{ asset('uploads/' ~ app.user.image) }}" alt="{{ app.user.firstName }}">
@@ -37,34 +37,34 @@
 
                         <div id="dropdown" class="z-10 hidden bg-white rounded-lg w-auto">
                             <ul class="rounded-md border-gray-100 border-2 px-6 py-2 text-sm sm:text-base md:text-lg" aria-labelledby="dropdownDefaultButton">
-                                <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                     <p>{{ app.user.firstName|capitalize }} {{ app.user.lastName|first }}</p>
                                 </li>
-                                <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                     <a href="{{ path('app_profile', {'id': app.user.id}) }}">Mon Profil</a>
                                 </li>
                                 {% for role in app.user.roles %}
                                     {% if "ROLE_CUSTOMER" in role %}
-                                        <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                        <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                             <a href="{{ path('app_show_houseworks', {'id': app.user.id}) }}">Mes Ménages Party</a>
                                         </li>
-                                        <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                        <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                             <a href="{{ path('app_housework', {'id': app.user.id}) }}">Nouvelle Ménage Party</a>
                                         </li>
                                     {% elseif "ROLE_CLEANER" in role %}
-                                        <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                        <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                             <a href="{{ path('app_upcoming_performances') }}">Prochaines prestations</a>
                                         </li>
                                         {% elseif "ROLE_ADMIN" in role %}
-                                            <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                            <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                                 <a href="{{ path('app_admin') }}">Vérification de compte</a>
                                             </li>
-                                            <li class="py-2 text-left text-lg font-medium hover:text-blue-600">
+                                            <li class="font-serif py-2 text-left text-lg font-medium hover:text-blue-600">
                                                 <a href="{{ path('app_create_event') }}">Créer un service</a>
                                             </li>
                                     {% endif %}
                                 {% endfor %}
-                                <li class="py-2 text-left text-lg font-medium text-red-400 hover:text-red-800">
+                                <li class="font-serif py-2 text-left text-lg font-medium text-red-400 hover:text-red-800">
                                     <a href="/logout">Déconnexion</a>
                                 </li>
                             </ul>
@@ -72,8 +72,8 @@
                     </li>
 
                 {% else %}
-                    <li class="text-lg sm:text-xl md:text-xl font-bold mr-4"><a href="{{  path('app_login') }}">Connexion</a></li>
-                    <li class="text-lg sm:text-xl md:text-xl font-bold mr-4"><a href="{{  path('app_register') }}">S'inscrire</a></li>
+                    <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-4"><a href="{{  path('app_login') }}">Connexion</a></li>
+                    <li class="font-serif text-lg sm:text-xl md:text-xl font-bold mr-4"><a href="{{  path('app_register') }}">S'inscrire</a></li>
                 {% endif %}
             </ul>
         </div>

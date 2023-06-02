@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="63858778-3ec6-4d84-8e22-52cac8fa2052" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menage_party/Detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +246,11 @@
       <workItem from="1685440682778" duration="1188000" />
       <workItem from="1685544853485" duration="594000" />
       <workItem from="1685636844983" duration="1000" />
-      <workItem from="1685643983896" duration="1984000" />
+      <workItem from="1685643983896" duration="2281000" />
+      <workItem from="1685647817166" duration="1552000" />
+      <workItem from="1685718281263" duration="4191000" />
+      <workItem from="1685723865385" duration="40000" />
+      <workItem from="1685748338440" duration="1029000" />
     </task>
     <servers />
   </component>
