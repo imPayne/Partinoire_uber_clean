@@ -26,7 +26,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class MenagePartyController extends AbstractController
 {
-    #[Route('/menage/party', name: 'app_menage_party')]
+    #[Route('/menage_party', name: 'app_menage_party')]
     public function index(HouseworkRepository $houseworkRepository): Response
     {
         $houseworks = $houseworkRepository->findAll();

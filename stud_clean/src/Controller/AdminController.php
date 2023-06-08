@@ -22,7 +22,7 @@ class AdminController extends AbstractController
             'getAllCleanerDatas' => $getAllCleanerDatas,
         ]);
     }
-    #[Route('/admin/compte_a_verifier/{id}', name: 'app_admin_verified')]
+    #[Route('/admin/to_verified/{id}', name: 'app_admin_verified')]
     public function verified(CleanerRepository $cleanerRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $id = $request->get('id');
